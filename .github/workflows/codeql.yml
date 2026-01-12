@@ -20,9 +20,6 @@ on:
   schedule:
     - cron: '35 9 * * 3'
 
-env:
-  AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/bertk0374/_packaging/public/nuget/v3/index.json
-
 jobs:
   analyze:
     name: Analyze
@@ -43,16 +40,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
-        external-repository-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
         # Prefix the list here with "+" to use these queries and those in the config file.
@@ -65,12 +61,9 @@ jobs:
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
 
     - name: Setup dotnet 10.0
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '10.0.101'
-        source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
     - name: Restore dependencies
       run: dotnet restore SampleSolution.sln
@@ -78,11 +71,7 @@ jobs:
     - name: Build
       run: dotnet build SampleSolution.sln
 
-     #- run: |
-     #    echo "Run, Build Application using script"
-     #    ./eng/commonlight/build.sh --build --restore
-
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
+      uses: github/codeql-action/analyze@v4
       with:
         category: "/language:${{matrix.language}}"

@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 
 namespace XUnitTestProject3
 {
@@ -7,7 +7,7 @@ namespace XUnitTestProject3
         [Fact]
         public void Test3()
         {
-            new ClassLibrary3.Class3().Method();
+            Assert.Equal(42, ClassLibrary3.Class3.Method());
         }
     }
 }

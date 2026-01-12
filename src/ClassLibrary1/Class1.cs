@@ -1,10 +1,9 @@
-﻿namespace ClassLibrary1
+namespace ClassLibrary1;
+
+public static class Class1
 {
-  public class Class1
+    public static int Method()
     {
-        public int Method()
-        {
-            return 42;
-        }
+        return 42;
     }
 }

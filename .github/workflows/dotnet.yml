@@ -11,8 +11,6 @@ on: [workflow_dispatch]
 #   pull_request:
 #     branches: [ "main" ]
 
-env:
-  AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/bertk0374/_packaging/public/nuget/v3/index.json
 
 jobs:
   # Fail if there are build warnings
@@ -24,17 +22,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
       - name: Setup dotnet 8.0
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
 
       - name: Setup dotnet 10.0
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.101'
 
@@ -65,17 +63,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
       - name: Setup dotnet 10.0
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.101'
-          source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
 
       - name: Tests
         run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
@@ -100,7 +95,7 @@ jobs:
         shell: bash
 
       - name: Upload coverage report artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: CoverageReport.${{matrix.os}}.${{matrix.framework}} # Artifact name
           path: ./artifacts/CoverageReport # Directory containing files to upload

@@ -9,7 +9,6 @@
     <NoWarn>$(NoWarn);NU1504;NU1507;CS1591</NoWarn>
     <EnableSourceLink>false</EnableSourceLink>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     <!--coverlet workaround -->
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <OutputType>Exe</OutputType>
@@ -27,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SampleConsoleApp\SampleConsoleApp.csproj" />
+    <ProjectReference Include="..\..\src\ConsoleApp\ConsoleApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

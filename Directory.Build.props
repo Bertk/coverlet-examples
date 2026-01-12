@@ -15,19 +15,23 @@
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <UpdateAssemblyInfo>true</UpdateAssemblyInfo>
-
-    <TargetFrameworkForNETSDK>net6.0</TargetFrameworkForNETSDK>
-
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <AnalysisLevelInteroperability>true</AnalysisLevelInteroperability>
+    <TargetFrameworkForNETSDK>net10.0</TargetFrameworkForNETSDK>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <NoWarn>$(NoWarn);NU1507;CS1591</NoWarn>
-
-    <XUnitCoreSettingsFile>$(MSBuildThisFileDirectory)eng/xunit.runner.json</XUnitCoreSettingsFile>
+    <!-- https://learn.microsoft.com/en-us/dotnet/core/sdk/artifacts-output -->
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(BUILD_REASON) == ''">
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
   </PropertyGroup>
-
 
   <!-- https://devblogs.microsoft.com/dotnet/producing-packages-with-source-link/ -->
   <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
@@ -49,13 +53,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSource>false</IncludeSource>
     <RepositoryType>git</RepositoryType>
-    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
-    <!--<UsingMicrosoftArtifactsSdk>true</UsingMicrosoftArtifactsSdk>-->
-    <!-- https://learn.microsoft.com/en-us/dotnet/core/sdk/artifacts-output -->
-    <!-- C:\Program Files\dotnet\sdk\8.0.100\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets -->
-    <UseArtifactsOutput>true</UseArtifactsOutput>
-    <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
-    <CoverletVersion Condition="'$(CoverletVersion)'==''">8.0.0</CoverletVersion>
   </PropertyGroup>
 
 </Project>

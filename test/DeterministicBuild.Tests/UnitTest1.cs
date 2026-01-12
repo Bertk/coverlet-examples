@@ -8,7 +8,7 @@ namespace XUnitTestProject1
         [Fact]
         public void Test1()
         {
-            new ClassLibrary1.Class1().Method();
+            Assert.Equal(42, ClassLibrary1.Class1.Method());
         }
     }
 }

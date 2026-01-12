@@ -1,8 +1,8 @@
-﻿namespace ClassLibrary3
+namespace ClassLibrary3
 {
-  public class Class3
+  public static class Class3
     {
-        public int Method()
+        public static int Method()
         {
             return 42;
         }

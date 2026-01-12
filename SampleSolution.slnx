@@ -5,8 +5,8 @@
     <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
     <Project Path="test/DeterministicBuild.Tests/DeterministicBuild.Tests.csproj" />
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
-    <Project Path="test/XUnitProject2.Tests/XUnitTestProject2.csproj" />
-    <Project Path="test/XUnitProject3.Tests/XUnitTestProject3.csproj" />
+    <Project Path="test/XUnitProject2.Tests/XUnitProject2.Tests.csproj" />
+    <Project Path="test/XUnitProject3.Tests/XUnitProject3.Tests.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/">
     <File Path=".editorconfig" />
@@ -24,8 +24,8 @@
     <Project Path="test/CollectorProject.Tests/CollectorProject.Tests.csproj" />
   </Folder>
   <Folder Name="/ConsoleApp/">
-    <Project Path="src\ConsoleApp\SampleConsoleApp\SampleConsoleApp.csproj" />
-    <Project Path="test/SampleConsoleApp.Tests/SampleConsoleApp.Tests.csproj" />
+    <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
+    <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
   </Folder>
   <Folder Name="/Calculator/">
     <Project Path="src\Calculator\Calculator.Client\Calculator.Client.csproj" />
