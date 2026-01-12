@@ -1,8 +1,16 @@
 <Solution>
+  <Folder Name="/MSBuildTask/">
+    <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
+    <Project Path="src/ClassLibrary2/ClassLibrary2.csproj" />
+    <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
+    <Project Path="test/DeterministicBuild.Tests/DeterministicBuild.Tests.csproj" />
+    <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
+    <Project Path="test/XUnitProject2.Tests/XUnitTestProject2.csproj" />
+    <Project Path="test/XUnitProject3.Tests/XUnitTestProject3.csproj" />
+  </Folder>
   <Folder Name="/_Solution Folder/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
-    <File Path="azure-pipelines.yml" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Build.targets" />
     <File Path="Directory.Packages.props" />
@@ -12,18 +20,12 @@
     <File Path="README.md" />
     <File Path="version.json" />
   </Folder>
-  <Folder Name="/RazorPages/">
-    <Project Path="src\RazorPages\RazorPagesIntro\RazorPagesIntro.csproj" />
-    <Project Path="src\RazorPages\RazorPagesTestSample.Tests\RazorPagesTestSample.Tests.csproj" />
-    <Project Path="src\RazorPages\RazorPagesTestSample\RazorPagesTestSample.csproj" />
-  </Folder>
-  <Folder Name="/NewTypes/">
-    <Project Path="src\NewTypes\NewTypesTests\NewTypes.Tests.csproj" />
-    <Project Path="src\NewTypes\NewTypes\NewTypes.csproj" />
+  <Folder Name="/Collector/">
+    <Project Path="test/CollectorProject.Tests/CollectorProject.Tests.csproj" />
   </Folder>
   <Folder Name="/ConsoleApp/">
-    <Project Path="src\ConsoleApp\SampleConsoleAppTest\SampleConsoleApp.Tests.csproj" />
     <Project Path="src\ConsoleApp\SampleConsoleApp\SampleConsoleApp.csproj" />
+    <Project Path="test/SampleConsoleApp.Tests/SampleConsoleApp.Tests.csproj" />
   </Folder>
   <Folder Name="/Calculator/">
     <Project Path="src\Calculator\Calculator.Client\Calculator.Client.csproj" />

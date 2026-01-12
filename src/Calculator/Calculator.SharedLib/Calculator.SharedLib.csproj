@@ -21,4 +21,15 @@
     <Protobuf Include="Calculator.proto" GrpcServices="Both" OutputDir="%(RelativePath)" CompileOutputs="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>

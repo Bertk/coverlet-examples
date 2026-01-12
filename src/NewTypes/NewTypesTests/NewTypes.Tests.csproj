@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net10.0;net9.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
 
     <NoWarn>$(NoWarn);NU1504;NU1507;CS1591</NoWarn>
@@ -13,16 +13,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-      <PackageReference Include="xunit.v3"/>
+      <PackageReference Include="xunit.v3.mtp-v2" />
       <PackageReference Include="xunit.runner.visualstudio">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="xunit.v3.runner.console">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="coverlet.collector">
+      <PackageReference Include="coverlet.MTP">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>
@@ -31,5 +27,16 @@
     <ItemGroup>
     <ProjectReference Include="../NewTypes/NewTypes.csproj" />
   </ItemGroup>
+
+    <ItemGroup>
+      <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Update="SonarAnalyzer.CSharp">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
 
 </Project>

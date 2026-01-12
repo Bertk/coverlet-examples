@@ -11,15 +11,15 @@ namespace SampleConsoleApp
             Option<int> delayOption = new("--delay") { Description = "delay in seconds", DefaultValueFactory = (_) => 42 };
             Option<string> messageOption = new("--message") { Required = true };
 
-            RootCommand rootCommand = new("CommandLine example");
-            rootCommand.Add(delayOption);
-            rootCommand.Add(messageOption);
-            rootCommand.Add(new HelpOption());
-            rootCommand.Add(new VersionOption() { Description = "SampleConsoleApp version" });
+            RootCommand rootCommand = new("CommandLine example")
+            {
+                delayOption,
+                messageOption,
+                new HelpOption(),
+                new VersionOption() { Description = "SampleConsoleApp version" }
+            };
 
-            var parseResult = CommandLineParser.Parse(rootCommand, args);
-
-            CommandLineConfiguration config = new CommandLineConfiguration(rootCommand);
+            ParseResult parseResult = rootCommand.Parse(args);
 
             rootCommand.SetAction(_ =>
             {
@@ -28,7 +28,9 @@ namespace SampleConsoleApp
                 DoRootCommand(delayOptionValue, messageOptionValue);
             });
 
-            await config.InvokeAsync(args).ConfigureAwait(false);
+
+
+            await parseResult.InvokeAsync().ConfigureAwait(false);
 
         }
 
