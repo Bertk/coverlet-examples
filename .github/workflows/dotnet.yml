@@ -1,0 +1,112 @@
+# This work-flow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on: [workflow_dispatch]
+
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+
+env:
+  AZURE_ARTIFACTS_FEED_URL: https://pkgs.dev.azure.com/bertk0374/_packaging/public/nuget/v3/index.json
+
+jobs:
+  # Fail if there are build warnings
+  #
+  # To check for build warnings locally you may need to run a clean build.
+  # This can be done by running `dotnet clean` before running `dotnet build`
+  build:
+    name: Build check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - name: Setup dotnet 8.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+          source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+
+      - name: Setup dotnet 9.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.100-rc.1.24452.12'
+          source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+  # Fail if there are any failed tests
+  #
+  # We support all current LTS versions of .NET and Windows, Mac and Linux.
+  #
+  # To check for failing tests locally run `dotnet test`.
+  #
+  # Although you can build previous versions of .NET projects with the
+  # latest SDK you can't run them. So to run tests for all target versions you
+  # will need all current LTS version runtime installed.
+
+  test:
+    name: Tests for .net core ${{ matrix.framework }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        framework: ['net8.0', 'net9.0']
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+
+      - name: Setup dotnet 9.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.100-rc.1.24452.12'
+          source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+
+      - name: Tests
+        run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+
+      - name: ReportGenerator
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.4.5
+        with:
+          reports: ./coverage/**/coverage.cobertura.xml
+          assemblyfilters: -xunit*
+          targetdir: ./artifacts/CoverageReport
+          reporttypes: HtmlInline;Cobertura;MarkdownSummaryGithub
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: ./artifacts/CoverageReport/SummaryGithub.md
+
+      - name: Write to Job Summary
+        run: cat ./artifacts/CoverageReport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+        shell: bash
+
+      - name: Upload coverage report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoverageReport.${{matrix.os}}.${{matrix.framework}} # Artifact name
+          path: ./artifacts/CoverageReport # Directory containing files to upload
