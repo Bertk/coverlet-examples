@@ -91,7 +91,7 @@ public class CommandLineTest
     internal static string GetCommandPath()
     {
         string currentPath = Assembly.GetExecutingAssembly().Location;
-        string rootDirectory = currentPath.Substring(0, currentPath.IndexOf($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.CurrentCulture));
+        string rootDirectory = currentPath[..currentPath.IndexOf($"{Path.DirectorySeparatorChar}bin{Path.DirectorySeparatorChar}", StringComparison.CurrentCulture)];
 #if NET10_0
         const string targetFramework = "net10.0";
 #endif
@@ -114,7 +114,7 @@ public class CommandLineTest
             extension = ".exe";
         }
 
-        string ToolCommandPath = Path.Combine(rootDirectory, "bin", "SampleConsoleApp", buildConfiguration, targetFramework, $"SampleConsoleApp{extension}");
+        string ToolCommandPath = Path.Combine(rootDirectory, "bin", "ConsoleApp", buildConfiguration.ToLower() + "_" + targetFramework, $"ConsoleApp{extension}");
 
         return ToolCommandPath;
     }

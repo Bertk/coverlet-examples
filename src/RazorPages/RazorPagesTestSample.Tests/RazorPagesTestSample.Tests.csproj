@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFrameworks>net10.0</TargetFrameworks>
+        <TargetFrameworks><TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks></TargetFrameworks>
         <NoWarn>$(NoWarn);NU1504;NU1507;CS1591;CA2007</NoWarn>
         <EnableSourceLink>false</EnableSourceLink>
         <!--coverlet workaround -->
@@ -31,10 +31,6 @@
         <PackageReference Include="Moq" />
         <PackageReference Include="Newtonsoft.Json" />
         <PackageReference Include="xunit.v3.mtp-v2" />
-        <PackageReference Include="xunit.runner.visualstudio">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-        </PackageReference>
         <PackageReference Include="coverlet.MTP">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

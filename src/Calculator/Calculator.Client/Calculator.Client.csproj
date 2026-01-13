@@ -1,26 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <OutputType>Exe</OutputType>
-        <NoWarn>$(NoWarn);CA1303</NoWarn>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>$(NetCurrent)</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <NoWarn>$(NoWarn);CA1303</NoWarn>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Grpc.Net.Client" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Calculator.SharedLib\Calculator.SharedLib.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Calculator.SharedLib\Calculator.SharedLib.csproj" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageVersion Update="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Update="SonarAnalyzer.CSharp">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>

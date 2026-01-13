@@ -34,7 +34,7 @@ jobs:
       - name: Setup dotnet 10.0
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.101'
+          global-json-file: './global.json'
 
       - name: Restore dependencies
         run: dotnet restore
@@ -70,15 +70,16 @@ jobs:
       - name: Setup dotnet 10.0
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '10.0.101'
+          global-json-file: './global.json'
 
       - name: Tests
-        run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+        run: dotnet test --solution SampleSolution.slnx --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace
+        # run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
 
       - name: ReportGenerator
         uses: danielpalme/ReportGenerator-GitHub-Action@5.5.1
         with:
-          reports: ./coverage/**/coverage.cobertura.xml
+          reports: ./artifacts/**/coverage.cobertura.xml
           assemblyfilters: -xunit*
           targetdir: ./artifacts/CoverageReport
           reporttypes: HtmlInline;Cobertura;MarkdownSummaryGithub

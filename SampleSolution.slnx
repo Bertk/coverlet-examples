@@ -33,4 +33,7 @@
     <Project Path="src\Calculator\Calculator.ServiceLib\Calculator.ServiceLib.csproj" />
     <Project Path="src\Calculator\Calculator.SharedLib\Calculator.SharedLib.csproj" />
   </Folder>
+  <Folder Name="/_Solution Folder/Github Action/">
+    <File Path=".github/workflows/dotnet.yml" />
+  </Folder>
 </Solution>

@@ -19,7 +19,7 @@
     <AnalysisLevel>preview-recommended</AnalysisLevel>
     <InvariantGlobalization>true</InvariantGlobalization>
     <AnalysisLevelInteroperability>true</AnalysisLevelInteroperability>
-    <TargetFrameworkForNETSDK>net10.0</TargetFrameworkForNETSDK>
+
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <NoWarn>$(NoWarn);NU1507;CS1591</NoWarn>
     <!-- https://learn.microsoft.com/en-us/dotnet/core/sdk/artifacts-output -->
@@ -27,6 +27,10 @@
     <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
     <LangVersion>latest</LangVersion>
+    <NetCurrent>net10.0</NetCurrent>
+    <NetMinimum>net8.0</NetMinimum>
+    <FullFrameworkTFM>net472</FullFrameworkTFM>
+    <TargetFrameworkForNETSDK>net10.0</TargetFrameworkForNETSDK>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(BUILD_REASON) == ''">

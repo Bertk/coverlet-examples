@@ -5,7 +5,7 @@
 # All files
 [*]
 indent_style = space
-indent_size = 4
+indent_size = 2
 insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
@@ -17,7 +17,7 @@ spelling_error_severity = warning
 
 # Visual Studio XML Project Files
 [*.{csproj,vbproj,vcxproj.filters,proj,projitems,shproj}]
-indent_size = 4
+indent_size = 2
 
 # XML Configuration Files
 [*.{xml,config,props,targets,nuspec,resx,ruleset,vsixmanifest,vsct}]
