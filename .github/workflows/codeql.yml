@@ -66,10 +66,10 @@ jobs:
         dotnet-version: '10.0.101'
 
     - name: Restore dependencies
-      run: dotnet restore SampleSolution.sln
+      run: dotnet restore SampleSolution.slnx
 
     - name: Build
-      run: dotnet build SampleSolution.sln
+      run: dotnet build SampleSolution.slnx
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v4
