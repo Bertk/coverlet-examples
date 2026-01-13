@@ -3,14 +3,16 @@
 
 name: .NET
 
-on: [workflow_dispatch]
+# on: [workflow_dispatch]
+on:
+ push:
+   branches: [ "main" ]
+ pull_request:
+   branches: [ "main" ]
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-
+permissions:
+  pull-requests: write
+  contents: read
 
 jobs:
   # Fail if there are build warnings
@@ -73,7 +75,7 @@ jobs:
           global-json-file: './global.json'
 
       - name: Tests
-        run: dotnet test --solution SampleSolution.slnx --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace
+        run: dotnet test --solution SampleSolution.slnx --report-xunit-trx --framework ${{ matrix.framework }} --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace
         # run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
 
       - name: ReportGenerator
