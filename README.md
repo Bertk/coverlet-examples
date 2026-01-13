@@ -10,180 +10,230 @@ dotnet test --solution SampleSolution.slnx
 
 or 
 
-dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-trx
+dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace
 ```
 
 
 ```shell
-C:\GitHub\coverlet-examples\artifacts\bin\XUnitProject1.Tests\debug>XUnitProject1.Tests.exe -h
-xUnit.net v3 In-Process Runner v3.2.1+a9cfb80929 (64-bit .NET 10.0.1)
-Copyright (C) .NET Foundation.
+C:\GitHub\coverlet-examples>dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj -h
+Description:
+  .NET Test Command for Microsoft.Testing.Platform (opted-in via 'global.json' file). This only supports Microsoft.Testing.Platform and doesn't support VSTest.
+  For more information, see https://aka.ms/dotnet-test.
 
-usage: [:seed] [path/to/configFile.json] [options] [filters] [reporter] [resultFormat filename [...]]
+Usage:
+  dotnet test [options] [platform options] [extension options]
 
-General options
+Options:
+  --project <PROJECT_PATH>                        Defines the path of the project file to run (folder name or full path). If not specified, it defaults to the
+                                                  current directory.
+  --solution <SOLUTION_PATH>                      Defines the path of the solution file to run. If not specified, it defaults to the current directory.
+  --test-modules <EXPRESSION>                     Run tests for the specified test modules.
+  --root-directory <ROOT_PATH>                    The test modules have the specified root directory.
+  --results-directory <RESULTS_DIR>               The directory where the test results will be placed.
+                                                  The specified directory will be created if it does not exist.
+  --config-file <CONFIG_FILE>                     Specifies a testconfig.json file.
+  --diagnostic-output-directory <DIAGNOSTIC_DIR>  Output directory of the diagnostic logging.
+                                                  If not specified the file will be generated inside the default 'TestResults' directory.
+  --max-parallel-test-modules <NUMBER>            The max number of test modules that can run in parallel.
+  --minimum-expected-tests <NUMBER>               Specifies the minimum number of tests that are expected to run.
+  -a, --arch <ARCH>                               The target architecture.
+  -e, --environment <NAME="VALUE">                Sets the value of an environment variable.
+                                                  Creates the variable if it does not exist, overrides if it does.
+                                                  This argument can be specified multiple times to provide multiple variables.
 
-  -assemblyInfo                      : return test assembly information; does not find or run tests (implies -noColor and -noLogo)
-  -assertEquivalentMaxDepth <option> : override the maximum recursive depth when comparing objects with Assert.Equivalent
-                                     :   any integer value >= 1 is valid (default value is 50)
-  -automated [option]                : enables automated mode (ensures all output is machine parseable)
-                                     :   <unset> - use synchronous reporting requested by the configuration
-                                     :   async   - asynchronously report messages (and don't wait)
-                                     :   sync    - synchronously report messages (and wait for a carriage return after each)
-  -culture <option>                  : run tests under the given culture (v3 assemblies only)
-                                     : note: when running a v1/v2 assembly, the culture option will be ignored
-                                     :   default   - run with default operating system culture
-                                     :   invariant - run with the invariant culture
-                                     :   (string)  - run with the given culture (i.e., 'en-US')
-  -debug                             : launch the debugger to debug the tests
-  -diagnostics                       : enable diagnostics messages for all test assemblies
-  -explicit <option>                 : change the way explicit tests are handled
-                                     :   on   - run both explicit and non-explicit tests
-                                     :   off  - run only non-explicit tests [default]
-                                     :   only - run only explicit tests
-  -failSkips                         : treat skipped tests as failures
-  -failSkips-                        : treat skipped tests as skipped [default]
-  -failWarns                         : treat passing tests with warnings as failures
-  -failWarns-                        : treat passing tests with warnings as successful [default]
-  -id <id>                           : run a test case (by unique ID)
-  -ignoreFailures                    : if tests fail, do not return a failure exit code
-  -internalDiagnostics               : enable internal diagnostics messages for all test assemblies
-  -list <option>                     : list information about the test assemblies rather than running tests (implies -noLogo)
-                                     : note: you can add '/json' to the end of any option to get the listing in JSON format
-                                     :   classes - list class names of every class which contains tests
-                                     :   full    - list complete discovery data
-                                     :   methods - list class+method names of every method which is a test
-                                     :   tests   - list just the display name of all tests
-                                     :   traits  - list the set of trait name/value pairs used in the test assemblies
-  -longRunning <seconds>             : enable long running (hung) test detection (implies -diagnostics) by specifying
-                                     : the number of seconds (as a positive integer) to report a test as running
-                                     : too long (most effective with parallelAlgorithm 'conservative')
-  -maxThreads <option>               : maximum thread count for collection parallelization
-                                     :   default   - run with default (1 thread per CPU thread)
-                                     :   unlimited - run with unbounded thread count
-                                     :   (integer) - use exactly this many threads (e.g., '2' = 2 threads)
-                                     :   (float)x  - use a multiple of CPU threads (e.g., '2.0x' = 2.0 * the number of CPU threads)
-  -methodDisplay <option>            : set default test display name
-                                     :   classAndMethod - Use a fully qualified name [default]
-                                     :   method         - Use just the method name
-  -methodDisplayOptions <option>     : alters the default test display name
-                                     : note: you can specify more than one flag by joining with commas
-                                     :   none                       - apply no alterations [default]
-                                     :   all                        - apply all alterations
-                                     :   replacePeriodWithComma     - replace periods in names with commas
-                                     :   replaceUnderscoreWithSpace - replace underscores in names with spaces
-                                     :   useOperatorMonikers        - replace operator names with operators
-                                     :                                  'lt' becomes '<'
-                                     :                                  'le' becomes '<='
-                                     :                                  'eq' becomes '='
-                                     :                                  'ne' becomes '!='
-                                     :                                  'gt' becomes '>'
-                                     :                                  'ge' becomes '>='
-                                     :   useEscapeSequences         - replace ASCII and Unicode escape sequences
-                                     :                                   X + 2 hex digits (i.e., 'X2C' becomes ',')
-                                     :                                   U + 4 hex digits (i.e., 'U0192' becomes 'ƒ')
-  -noAutoReporters                   : do not allow reporters to be auto-enabled by environment
-                                     : (for example, auto-detecting TeamCity or AppVeyor)
-  -noColor                           : do not output results with colors
-  -noLogo                            : do not show the copyright message
-  -parallel <option>                 : set parallelization based on option
-                                     :   none        - turn off parallelization
-                                     :   collections - parallelize by collections [default]
-  -parallelAlgorithm <option>        : set the parallelization algoritm
-                                     :   conservative - start the minimum number of tests [default]
-                                     :   aggressive   - start as many tests as possible
-                                     : for more information, see https://xunit.net/docs/running-tests-in-parallel#algorithms
-  -pause                             : wait for input before running tests (ignored with -automated)
-  -preEnumerateTheories              : enable theory pre-enumeration (disabled by default)
-  -run <serialization>               : run a test case (by serialization)
-  -showLiveOutput                    : show output messages from tests live
-  -stopOnFail                        : stop on first test failure
-  -useAnsiColor                      : force using ANSI color output on Windows (non-Windows always uses ANSI colors)
-  -wait                              : wait for input after completion (ignored with -automated)
-  -waitForDebugger                   : pauses execution until a debugger has been attached
+                                                  Examples:
+                                                  -e VARIABLE=abc
+                                                  -e VARIABLE="value with spaces"
+                                                  -e VARIABLE="value;seperated with;semicolons"
+                                                  -e VAR1=abc -e VAR2=def -e VAR3=ghi
+  -c, --configuration <CONFIGURATION>             The configuration to use for running tests. The default for most projects is 'Debug'.
+  -f, --framework <FRAMEWORK>                     The target framework to run tests for. The target framework must also be specified in the project file.
+  --os <OS>                                       The target operating system.
+  -r, --runtime <RUNTIME_IDENTIFIER>              The target runtime to test for.
+  -v, -verbosity <LEVEL>                          Set the MSBuild verbosity level. Allowed values are q[uiet], m[inimal], n[ormal], d[etailed], and
+                                                  diag[nostic].
+  --no-restore                                    Do not restore the project before building. [default: False]
+  --no-build                                      Do not build the project before testing. Implies --no-restore. [default: False]
+  --no-ansi                                       Disable ANSI output. [default: False]
+  --no-progress                                   Disable progress reporting. [default: False]
+  --output <Detailed|Normal>                      Verbosity of test output.
+  --list-tests <list-tests>                       List the discovered tests instead of running the tests.
+  --no-launch-profile                             Do not attempt to use launchSettings.json or [app].run.json to configure the application. [default: False]
+  --no-launch-profile-arguments                   Do not use arguments specified in launch profile to run the application. [default: False]
+  -?, -h, --help                                  Show command line help.
 
-Query filtering (optional, choose one or more)
-If more than one query filter is specified, the filters act as an OR operation
-  Note: You cannot mix simple filtering and query filtering.
+Waiting for options and extensions...
+Platform Options:
+  --debug                         Allows to pause execution in order to attach to the process for debug purposes.
+  --diagnostic                    Enable the diagnostic logging. The default log level is 'Trace'.
+                                  The file will be written in the output directory with the name log_[yyMMddHHmmssfff].diag
+  --diagnostic-file-prefix        Prefix for the log file name that will replace '[log]_.'
+  --diagnostic-synchronous-write  Force the built-in file logger to write the log synchronously.
+                                  Useful for scenario where you don't want to lose any log (i.e. in case of crash).
+                                  Note that this is slowing down the test execution.
+  --diagnostic-verbosity          Define the level of the verbosity for the --diagnostic.
+                                  The available values are 'Trace', 'Debug', 'Information', 'Warning', 'Error', and 'Critical'.
+  --exit-on-process-exit          Exit the test process if dependent process exits. PID must be provided.
+  --filter-uid                    Provides a list of test node UIDs to filter by.
+  --help                          Show the command line help.
+  --ignore-exit-code              Do not report non successful exit value for specific exit codes
+                                  (e.g. '--ignore-exit-code 8;9' ignore exit code 8 and 9 and will return 0 in these case)
+  --info                          Display .NET test application information.
+  --timeout                       A global test execution timeout.
+                                  Takes one argument as string in the format <value>[h|m|s] where 'value' is float.
 
-  -filter "query" : use a query filter to select tests (using the query filter language;
-                  : in '/assemblyName/namespace/class/method[trait=value]' format)
-                  : for more information, see https://xunit.net/docs/query-filter-language
-
-Simple filtering (optional, choose one or more)
-If more than one simple filter type is specified, cross-filter type filters act as an AND operation
-  Note: You cannot mix simple filtering and query filtering.
-
-  -class "name"        : run all methods in a given test class (type names are fully qualified;
-                       : i.e., 'MyNamespace.MyClass' or 'MyNamespace.MyClass+InnerClass'; wildcard '*'
-                       : is supported at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an OR operation
-  -class- "name"       : do not run any methods in a given test class (type names are fully qualified;
-                       : i.e., 'MyNamespace.MyClass' or 'MyNamespace.MyClass+InnerClass'; wildcard '*'
-                       : is supported at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an AND operation
-  -method "name"       : run a given test method (including the fully qualified type name;
-                       : i.e., 'MyNamespace.MyClass.MyTestMethod'; wildcard '*' is supported
-                       : at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an OR operation
-  -method- "name"      : do not run a given test method (including the fully qualified type name;
-                       : i.e., 'MyNamespace.MyClass.MyTestMethod'; wildcard '*' is supported
-                       : at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an AND operation
-  -namespace "name"    : run all methods in a given namespace (i.e., 'MyNamespace.MySubNamespace';
-                       : wildcard '*' is supported at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an OR operation
-  -namespace- "name"   : do not run any methods in a given namespace (i.e., 'MyNamespace.MySubNamespace';
-                       : wildcard '*' is supported at the beginning and/or end of the filter)
-                       :   if specified more than once, acts as an AND operation
-  -trait "name=value"  : only run tests with matching name/value traits (wildcard '*' is supported at the
-                       : beginning and/or end of the trait name and/or value)
-                       :   if specified more than once, acts as an OR operation
-  -trait- "name=value" : do not run tests with matching name/value traits (wildcard '*' is supported at the
-                       : beginning and/or end of the trait name and/or value)
-                       :   if specified more than once, acts as an AND operation
-
-Argument display overrides
-
-  -printMaxEnumerableLength <option>  : override the maximum number of values to show when printing a collection
-                                      : set to 0 to always print the full collection
-                                      :   any integer value >= 0 is valid (default value is 5)
-  -printMaxObjectDepth <option>       : override the maximum recursive depth when printing object values
-                                      : set to 0 to always print objects at all depths
-                                      : (warning: setting 0 or a very large value can cause stack overflows that may crash the test process)
-                                      :   any integer value >= 0 is valid (default value is 3)
-  -printMaxObjectMemberCount <option> : override the maximum number of fields and properties to show when printing an object
-                                      : set to 0 to always print all members
-                                      :   any integer value >= 0 is valid (default value is 5)
-  -printMaxStringLength <option>      : override the maximum length to show when printing a string value
-                                      : set to 0 to always print the entire string
-                                      :   any integer value >= 0 is valid (default value is 50)
-
-Runner reporters (optional, choose only one)
-
-  -reporter <option> : choose a reporter
-                     :   default  - show standard progress messages
-                     :   json     - show full progress messages in JSON [implies '-noLogo']
-                     :   quiet    - only show failure messages
-                     :   silent   - do not show any messages [implies '-noLogo']
-                     :   teamCity - TeamCity CI support
-                     :   verbose  - show verbose progress messages
-
-  The following reporters will be automatically enabled in the appropriate environment.
-  An automatically enabled reporter will override a manually selected reporter.
-    Note: You can disable auto-enabled reporters by specifying the '-noAutoReporters' switch
-
-    * AppVeyor CI support
-    * Azure DevOps/VSTS CI support
-    * TeamCity CI support
-
-Result formats (optional, choose one or more)
-
-  -ctrf <filename>  : output results to CTRF file
-  -html <filename>  : output results to HTML file
-  -jUnit <filename> : output results to JUnit XML file
-  -nUnit <filename> : output results to NUnit v2.5 XML file
-  -trx <filename>   : output results to TRX XML file
-  -xml <filename>   : output results to xUnit.net v2+ XML file
-  -xmlV1 <filename> : output results to xUnit.net v1 XML file
+Extension Options:
+  --assert-equivalent-max-depth                  Set the maximum recursive depth when comparing objects with Assert.Equivalent. Default value is 50.
+                                                     (integer) - maximum depth to compare; exceeding this fails the assertion
+  --auto-reporters                               Change whether reporters can be auto-enabled.
+                                                     on  - allow reporters to be auto-enabled by the environment [default]
+                                                     off - do not allow reporters to be auto-enabled by the environment
+  --coverlet                                     Enable code coverage data collection.
+  --coverlet-does-not-return-attribute           Attributes that mark methods as not returning.
+  --coverlet-exclude                             Exclude assemblies matching filters (e.g., [Assembly]Type).
+  --coverlet-exclude-assemblies-without-sources  Exclude assemblies without source code.
+  --coverlet-exclude-by-attribute                Exclude methods/classes decorated with attributes.
+  --coverlet-exclude-by-file                     Exclude source files matching glob patterns.
+  --coverlet-include                             Include assemblies matching filters (e.g., [Assembly]Type).
+  --coverlet-include-directory                   Include additional directories for instrumentation.
+  --coverlet-include-test-assembly               Include test assembly in coverage.
+  --coverlet-output-format                       Output format(s) for coverage report (json, lcov, opencover, cobertura).
+  --coverlet-single-hit                          Limit the number of hits to one for each location.
+  --coverlet-skip-auto-props                     Skip auto-implemented properties.
+  --culture                                      Run tests under the given culture.
+                                                     default   - run with the default operating system culture [default]
+                                                     invariant - run with the invariant culture
+                                                     (string)  - run with the given culture (i.e., 'en-US')
+  --explicit                                     Change the way explicit tests are handled.
+                                                     on   - run both explicit and non-explicit tests
+                                                     off  - run only non-explicit tests [default]
+                                                     only - run only explicit tests
+  --fail-skips                                   Change the way skipped tests are handled.
+                                                     on  - treat skipped tests as failed
+                                                     off - treat skipped tests as skipped [default]
+  --fail-warns                                   Change the way passing tests with warnings are handled.
+                                                     on  - treat passing tests with warnings as failed
+                                                     off - treat passing tests with warnings as passed [default]
+  --filter-class                                 Run all methods in a given test class. Pass one or more fully qualified type names (i.e.,
+                                                 'MyNamespace.MyClass' or 'MyNamespace.MyClass+InnerClass'). Wildcard '*' is supported at
+                                                 the beginning and/or end of each filter.
+                                                     Note: Specifying more than one is an OR operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-method                                Run a given test method. Pass one or more fully qualified method names (i.e.,
+                                                 'MyNamespace.MyClass.MyTestMethod'). Wildcard '*' is supported at the beginning and/or end
+                                                 of each filter.
+                                                     Note: Specifying more than one is an OR operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-namespace                             Run all methods in the given namespace. Pass one or more namespaces (i.e., 'MyNamespace' or
+                                                 'MyNamespace.MySubNamespace'). Wildcard '*' is supported at the beginning and/or end of
+                                                 each filter.
+                                                     Note: Specifying more than one is an OR operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-not-class                             Do not run any methods in the given test class. Pass one or more fully qualified type names
+                                                 (i.e., 'MyNamespace.MyClass', or 'MyNamespace.MyClass+InnerClass'). Wildcard '*' is supported at
+                                                 the beginning and/or end of each filter.
+                                                     Note: Specifying more than one is an AND operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-not-method                            Do not run a given test method. Pass one or more fully qualified method names (i.e.,
+                                                 'MyNamespace.MyClass.MyTestMethod'). Wildcard '*' is supported at the beginning and/or end
+                                                 of each filter.
+                                                     Note: Specifying more than one is an AND operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-not-namespace                         Do not run any methods in the given namespace. Pass one or more namespaces (i.e., 'MyNamespace'
+                                                 or 'MyNamespace.MySubNamespace'). Wildcard '*' is supported at the beginning and/or end of
+                                                 each filter.
+                                                     Note: Specifying more than one is an AND operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-not-trait                             Do not run any methods with a given trait value. Pass one or more name/value pairs (i.e.,
+                                                 'name=value'). Wildcard '*' is supported at the beginning and/or end of the trait name
+                                                 and/or value.
+                                                     Note: Specifying more than one is an AND operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --filter-query                                 Filter based on the filter query language. Pass one or more filter queries (in the
+                                                 '/assemblyName/namespace/type/method[trait=value]' format. For more information, see
+                                                 https://xunit.net/docs/query-filter-language
+                                                     Note: Specifying more than one is an OR operation.
+                                                           This is categorized as a query filter. You cannot use both query filters and simple filters.
+  --filter-trait                                 Run all methods with a given trait value. Pass one or more name/value pairs (i.e.,
+                                                 'name=value'). Wildcard '*' is supported at the beginning and/or end of the trait name
+                                                 and/or value.
+                                                     Note: Specifying more than one is an OR operation.
+                                                           This is categorized as a simple filter. You cannot use both simple filters and query filters.
+  --long-running                                 Enable long running (hung) test detection.
+                                                     (integer) - number of seconds a test runs to be considered 'long running'
+  --max-threads                                  Set maximum thread count for collection parallelization.
+                                                     default   - run with default (1 thread per CPU thread)
+                                                     unlimited - run with unbounded thread count
+                                                     (integer) - use exactly this many threads (e.g., '2' = 2 threads)
+                                                     (float)x  - use a multiple of CPU threads (e.g., '2.0x' = 2.0 * the number of CPU threads)
+  --method-display                               Set default test display name.
+                                                     classAndMethod - use a fully qualified name [default]
+                                                     method         - use just the method name
+  --method-display-options                       Alters the default test display name.
+                                                     none - apply no alterations [default]
+                                                     all  - apply all alterations
+                                                     Or one or more of:
+                                                         replacePeriodWithComma     - replace periods in names with commas
+                                                         replaceUnderscoreWithSpace - replace underscores in names with spaces
+                                                         useOperatorMonikers        - replace operator names with operators
+                                                                                          'lt' becomes '<'
+                                                                                          'le' becomes '<='
+                                                                                          'eq' becomes '='
+                                                                                          'ne' becomes '!='
+                                                                                          'gt' becomes '>'
+                                                                                          'ge' becomes '>='
+                                                         useEscapeSequences         - replace ASCII and Unicode escape sequences
+                                                                                          X + 2 hex digits (i.e., 'X2C' becomes ',')
+                                                                                          U + 4 hex digits (i.e., 'U0192' becomes 'ƒ')
+  --parallel                                     Change test parallelization.
+                                                     none        - turn off parallelization
+                                                     collections - parallelize by collections [default]
+  --parallel-algorithm                           Change the parallelization algorithm.
+                                                     conservative - start the minimum number of tests [default]
+                                                     aggressive   - start as many tests as possible
+  --pre-enumerate-theories                       Change theory pre-enumeration during discovery.
+                                                     on  - turns on theory pre-enumeration [default]
+                                                     off - turns off theory pre-enumeration
+  --print-max-enumerable-length                  Set the maximum number of values to show when printing a collection. Default value is 5.
+                                                     0         - always print the full collection
+                                                     (integer) - maximum values to print, followed by an ellipsis
+  --print-max-object-depth                       Set the maximum recursive depth when printing object values. Default value is 3.
+                                                     0         - print objects at all depths
+                                                     (integer) - maximum depth to print, followed by an ellipsis
+                                                 Warning: Setting '0' or a very large value can cause stack overflows that may crash the test process
+  --print-max-object-member-count                Set the maximum number of fields and properties to show when printing an object. Default value is 5.
+                                                     0         - always print the full collection
+                                                     (integer) - maximum members to print, followed by an ellipsis
+  --print-max-string-length                      Set the maximum length when printing a string. Default value is 50.
+                                                     0         - always print the full collection
+                                                     (integer) - maximum string length to print, followed by an ellipsis
+  --report-ctrf                                  Enable generating CTRF (JSON) report
+  --report-ctrf-filename                         The name of the generated CTRF report
+  --report-junit                                 Enable generating JUnit (XML) report
+  --report-junit-filename                        The name of the generated JUnit report
+  --report-nunit                                 Enable generating NUnit (v2.5 XML) report
+  --report-nunit-filename                        The name of the generated NUnit report
+  --report-xunit                                 Enable generating xUnit.net (v2+ XML) report
+  --report-xunit-filename                        The name of the generated xUnit.net report
+  --report-xunit-html                            Enable generating xUnit.net HTML report
+  --report-xunit-html-filename                   The name of the generated xUnit.net HTML report
+  --report-xunit-trx                             Enable generating xUnit.net TRX report
+  --report-xunit-trx-filename                    The name of the generated xUnit.net TRX report
+  --seed                                         Set the randomization seed.
+                                                     (integer) - use this as the randomization seed
+  --show-live-output                             Determine whether to show test output (from ITestOutputHelper) live during test execution.
+                                                     on  - turn on live reporting of test output
+                                                     off - turn off live reporting of test output [default]
+  --stop-on-fail                                 Stop running tests after the first test failure.
+                                                     on  - stop running tests after the first test failure
+                                                     off - run all tests regardless of failures [default]
+  --xunit-config-filename                        Sets the configuration file. By default, this is 'xunit.runner.json' in the bin directory
+                                                 alongside the compiled output.
+  --xunit-diagnostics                            Determine whether to show diagnostic messages.
+                                                     on  - display diagnostic messages
+                                                     off - hide diagnostic messages [default]
+  --xunit-info                                   Show xUnit.net headers and information
+  --xunit-internal-diagnostics                   Determine whether to show internal diagnostic messages.
+                                                     on  - display internal diagnostic messages
+                                                     off - hide internal diagnostic messages [default]
 ```
