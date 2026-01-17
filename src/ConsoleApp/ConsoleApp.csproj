@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="SampleConsoleAppTest" />
+    <InternalsVisibleTo Include="ConsoleAppTest" />
   </ItemGroup>
 
   <ItemGroup>
