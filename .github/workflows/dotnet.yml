@@ -102,3 +102,14 @@ jobs:
         with:
           name: CoverageReport.${{matrix.os}}.${{matrix.framework}} # Artifact name
           path: ./artifacts/CoverageReport # Directory containing files to upload
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v6
+        with:
+          name: TestResults.${{matrix.os}}.${{matrix.framework}} # Artifact name
+          path: |
+            ./artifacts/**/*.diag
+            ./artifacts/**/*.trx
+            ./artifacts/**/*.opencover.xml
+            ./artifacts/**/*.cobertura.xml
+            ./artifacts/**/*.coverage.json
