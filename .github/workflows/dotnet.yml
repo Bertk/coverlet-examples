@@ -113,6 +113,3 @@ jobs:
             ./artifacts/**/*.opencover.xml
             ./artifacts/**/*.cobertura.xml
             ./artifacts/**/*.coverage.json
-            ./test/**/*.opencover.xml
-            ./test/**/*.cobertura.xml
-            ./test/**/*.coverage.json
