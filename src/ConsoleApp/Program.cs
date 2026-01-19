@@ -2,7 +2,7 @@ using System.CommandLine;
 using System.CommandLine.Help;
 using System.CommandLine.Parsing;
 
-namespace SampleConsoleApp
+namespace ConsoleApp
 {
     static class Program
     {

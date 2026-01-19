@@ -1,13 +1,4 @@
 <Solution>
-  <Folder Name="/MSBuildTask/">
-    <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
-    <Project Path="src/ClassLibrary2/ClassLibrary2.csproj" />
-    <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
-    <Project Path="test/DeterministicBuild.Tests/DeterministicBuild.Tests.csproj" />
-    <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
-    <Project Path="test/XUnitProject2.Tests/XUnitProject2.Tests.csproj" />
-    <Project Path="test/XUnitProject3.Tests/XUnitProject3.Tests.csproj" />
-  </Folder>
   <Folder Name="/_Solution Folder/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
@@ -20,18 +11,17 @@
     <File Path="README.md" />
     <File Path="version.json" />
   </Folder>
-  <Folder Name="/Collector/">
-    <Project Path="test/CollectorProject.Tests/CollectorProject.Tests.csproj" />
+  <Folder Name="/ClassLib/">
+    <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
+    <Project Path="src/ClassLibrary2/ClassLibrary2.csproj" />
+    <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
+    <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
+    <Project Path="test/XUnitProject2.Tests/XUnitProject2.Tests.csproj" />
+    <Project Path="test/XUnitProject3.Tests/XUnitProject3.Tests.csproj" />
   </Folder>
   <Folder Name="/ConsoleApp/">
     <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
     <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
-  </Folder>
-  <Folder Name="/Calculator/">
-    <Project Path="src\Calculator\Calculator.Client\Calculator.Client.csproj" />
-    <Project Path="src\Calculator\Calculator.ServiceHost\Calculator.ServiceHost.csproj" />
-    <Project Path="src\Calculator\Calculator.ServiceLib\Calculator.ServiceLib.csproj" />
-    <Project Path="src\Calculator\Calculator.SharedLib\Calculator.SharedLib.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/Github Action/">
     <File Path=".github/workflows/dotnet.yml" />
