@@ -6,7 +6,7 @@
     <CoverletVersion>8.0.0-g615d3bf1b8</CoverletVersion>
   </PropertyGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.19.0.132793" />
     <GlobalPackageReference Include="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
   <ItemGroup>
