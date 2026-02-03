@@ -24,4 +24,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="ConsoleApp.Tests" />
+  </ItemGroup>
+
 </Project>
