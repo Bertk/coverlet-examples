@@ -13,7 +13,7 @@
     <PackageVersion Include="coverlet.MTP" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.msbuild" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.collector" Version="$(CoverletVersion)" />
-    <PackageVersion Include="Google.Protobuf" Version="3.33.4" />
+    <PackageVersion Include="Google.Protobuf" Version="3.33.5" />
     <PackageVersion Include="Grpc.AspNetCore" Version="2.76.0" />
     <PackageVersion Include="Grpc.Net.Client" Version="2.76.0" />
     <PackageVersion Include="Grpc.Tools" Version="2.76.0" />
