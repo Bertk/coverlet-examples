@@ -21,3 +21,6 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    labels:
+      - "type: dependencies"
+      - "actions"

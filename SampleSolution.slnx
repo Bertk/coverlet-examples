@@ -15,6 +15,7 @@
     <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
     <Project Path="src/ClassLibrary2/ClassLibrary2.csproj" />
     <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
+    <Project Path="test/NUnitProject1.Tests/NUnitProject1.Tests.csproj" />
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
     <Project Path="test/XUnitProject2.Tests/XUnitProject2.Tests.csproj" />
     <Project Path="test/XUnitProject3.Tests/XUnitProject3.Tests.csproj" />

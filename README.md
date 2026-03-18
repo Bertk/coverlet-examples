@@ -11,6 +11,14 @@ dotnet test --solution SampleSolution.slnx
 or 
 
 dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
+
+or
+
+dotnet exec artifacts\bin\XUnitProject1.Tests\debug_net10.0\XUnitProject1.Tests.dll --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
+
+or 
+
+dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix NUnitProject1  --coverlet-exclude [NUnit3.*]*
 ```
 
 

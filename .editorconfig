@@ -47,7 +47,8 @@ end_of_line = lf
 ###############################
 [*.{cs,vb}]
 # Default file header
-#file_header_template = some source file header 
+#file_header_template = some source file header
+dotnet_diagnostic.IDE0160.severity = none
 # Organize usings
 dotnet_sort_system_directives_first = true
 # this. preferences
