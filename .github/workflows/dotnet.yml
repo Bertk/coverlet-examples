@@ -91,7 +91,7 @@ jobs:
       - name: ReportGenerator
         uses: danielpalme/ReportGenerator-GitHub-Action@5.5.4
         with:
-          reports: ./artifacts/**/coverage.cobertura.xml
+          reports: ./artifacts/**/coverage.cobertura*.xml
           assemblyfilters: -xunit*
           targetdir: ./artifacts/CoverageReport
           reporttypes: HtmlInline;Cobertura;MarkdownSummaryGithub
