@@ -10,7 +10,7 @@
     <GlobalPackageReference Include="Nerdbank.GitVersioning" Version="3.9.50" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="coverlet.MTP" Version="10.0.0-preview.1.g04f8b59dd1" />
+    <PackageVersion Include="coverlet.MTP" Version="10.0.0-preview.1.g60314f4d8c" />
     <PackageVersion Include="coverlet.msbuild" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.collector" Version="$(CoverletVersion)" />
     <PackageVersion Include="Google.Protobuf" Version="3.34.1" />
