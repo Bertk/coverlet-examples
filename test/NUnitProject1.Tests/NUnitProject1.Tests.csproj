@@ -10,7 +10,7 @@
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results</TestingPlatformCommandLineArguments>
+    <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory $(ArtifactsPath)/results</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <ItemGroup>
