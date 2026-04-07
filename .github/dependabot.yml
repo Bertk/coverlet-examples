@@ -14,7 +14,7 @@ updates:
     registries:
       - coverlet-azure-devops
     labels:
-      - "type: dependencies"
+      - "dependencies"
       - ".NET"
 
   - package-ecosystem: "github-actions"
@@ -22,5 +22,5 @@ updates:
     schedule:
       interval: "monthly"
     labels:
-      - "type: dependencies"
+      - "dependencies"
       - "actions"
