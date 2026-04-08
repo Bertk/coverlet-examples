@@ -21,6 +21,16 @@ or
 dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix NUnitProject1  --coverlet-exclude [NUnit3.*]*
 ```
 
+Another option is to use MSBuild properties to enable code coverage, which is useful when you want to run tests from an IDE. You can add the following properties to your project file:
+```xml
+<TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results</TestingPlatformCommandLineArguments>
+```
+
+With this property you can simply run the test and get code coverage without additional MTP arguments:
+
+```shell
+dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --framework net10.0 --verbosity normal
+```
 
 ```shell
 C:\GitHub\coverlet-examples>dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj -h
