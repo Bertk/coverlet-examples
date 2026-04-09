@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
+
   <PropertyGroup>
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
     <DebugType>portable</DebugType>
@@ -10,18 +10,32 @@
     <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory $(ArtifactsPath)/results</TestingPlatformCommandLineArguments>
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)\example.runsettings</RunSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- <PackageReference Include="Microsoft.NET.Test.Sdk" /> -->
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="NUnit" />
-    <PackageReference Include="NUnitLite" />
+    <PackageReference Include="NUnit.Analyzers">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="example.runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="ShowEnableNUnitRunner" BeforeTargets="Build">
+    <Message Text="EnableNUnitRunner is set to: $(EnableNUnitRunner)" Importance="High" />
+  </Target>
 
 </Project>

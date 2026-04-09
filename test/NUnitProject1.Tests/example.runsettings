@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <!-- configuration elements -->
+  <TestOutputXml>TestOutputXml</TestOutputXml>
+  <OutputXmlFolderMode>UseResultDirectory</OutputXmlFolderMode>
+</RunSettings>
