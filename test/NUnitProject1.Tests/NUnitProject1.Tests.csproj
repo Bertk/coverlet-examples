@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
     <DebugType>portable</DebugType>
@@ -13,7 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="Microsoft.NET.Test.Sdk" /> -->
     <PackageReference Include="NUnit" />
     <PackageReference Include="NUnit.Analyzers">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,13 +27,7 @@
     <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="example.runsettings">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <Target Name="ShowEnableNUnitRunner" BeforeTargets="Build">
+  <Target Name="ShowEnableNUnitRunner" BeforeTargets="Build" Condition="'$(VerboseBuild)' == 'true'">
     <Message Text="EnableNUnitRunner is set to: $(EnableNUnitRunner)" Importance="High" />
   </Target>
 
