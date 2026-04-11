@@ -7,18 +7,24 @@
 
 ```shell
 dotnet test --solution SampleSolution.slnx
+```
 
 or 
 
+```shell
 dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
+```
 
 or
 
+```shell
 dotnet exec artifacts\bin\XUnitProject1.Tests\debug_net10.0\XUnitProject1.Tests.dll --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
+```
 
 or 
 
-dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix NUnitProject1  --coverlet-exclude [NUnit3.*]*
+```shell
+dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj  --report-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix NUnitProject1
 ```
 
 Another option is to use MSBuild properties to enable code coverage, which is useful when you want to run tests from an IDE. You can add the following properties to your project file:
@@ -35,16 +41,16 @@ dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --fram
 ```shell
 C:\GitHub\coverlet-examples>dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj -h
 Description:
-  .NET Test Command for Microsoft.Testing.Platform (opted-in via 'global.json' file). This only supports Microsoft.Testing.Platform and doesn't support VSTest.
-  For more information, see https://aka.ms/dotnet-test.
+  .NET Test Command for Microsoft.Testing.Platform (opted-in via 'global.json' file). This only supports Microsoft.Testing.Platform and doesn't support VSTest. For more information, see https://aka.ms/dotnet-test.
 
 Usage:
   dotnet test [options] [platform options] [extension options]
 
 Options:
-  --project <PROJECT_PATH>                        Defines the path of the project file to run (folder name or full path). If not specified, it defaults to the
+  --project <PROJECT_OR_SOLUTION_PATH>            Defines the path of the project or solution file to test. Use path to the project file, or path to the directory containing the project file. If not specified, it defaults to the
                                                   current directory.
-  --solution <SOLUTION_PATH>                      Defines the path of the solution file to run. If not specified, it defaults to the current directory.
+  --solution <SOLUTION_PATH>                      Defines the path of the solution file to test. Use path to the solution file, or path to the directory containing the solution file. If not specified, it defaults to the current
+                                                  directory.
   --test-modules <EXPRESSION>                     Run tests for the specified test modules.
   --root-directory <ROOT_PATH>                    The test modules have the specified root directory.
   --results-directory <RESULTS_DIR>               The directory where the test results will be placed.
@@ -54,7 +60,6 @@ Options:
                                                   If not specified the file will be generated inside the default 'TestResults' directory.
   --max-parallel-test-modules <NUMBER>            The max number of test modules that can run in parallel.
   --minimum-expected-tests <NUMBER>               Specifies the minimum number of tests that are expected to run.
-  -a, --arch <ARCH>                               The target architecture.
   -e, --environment <NAME="VALUE">                Sets the value of an environment variable.
                                                   Creates the variable if it does not exist, overrides if it does.
                                                   This argument can be specified multiple times to provide multiple variables.
@@ -66,10 +71,10 @@ Options:
                                                   -e VAR1=abc -e VAR2=def -e VAR3=ghi
   -c, --configuration <CONFIGURATION>             The configuration to use for running tests. The default for most projects is 'Debug'.
   -f, --framework <FRAMEWORK>                     The target framework to run tests for. The target framework must also be specified in the project file.
-  --os <OS>                                       The target operating system.
   -r, --runtime <RUNTIME_IDENTIFIER>              The target runtime to test for.
-  -v, -verbosity <LEVEL>                          Set the MSBuild verbosity level. Allowed values are q[uiet], m[inimal], n[ormal], d[etailed], and
-                                                  diag[nostic].
+  -a, --arch <ARCH>                               The target architecture.
+  --os <OS>                                       The target operating system.
+  -v, -verbosity <LEVEL>                          Set the MSBuild verbosity level. Allowed values are q[uiet], m[inimal], n[ormal], d[etailed], and diag[nostic].
   --no-restore                                    Do not restore the project before building. [default: False]
   --no-build                                      Do not build the project before testing. Implies --no-restore. [default: False]
   --no-ansi                                       Disable ANSI output. [default: False]
@@ -112,6 +117,7 @@ Extension Options:
   --coverlet-exclude-assemblies-without-sources  Exclude assemblies without source code.
   --coverlet-exclude-by-attribute                Exclude methods/classes decorated with attributes.
   --coverlet-exclude-by-file                     Exclude source files matching glob patterns.
+  --coverlet-file-prefix                         Prefix for coverage report filenames to prevent overwrites when multiple test projects write to the same directory.
   --coverlet-include                             Include assemblies matching filters (e.g., [Assembly]Type).
   --coverlet-include-directory                   Include additional directories for instrumentation.
   --coverlet-include-test-assembly               Include test assembly in coverage.
