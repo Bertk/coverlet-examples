@@ -24,7 +24,7 @@ dotnet exec artifacts\bin\XUnitProject1.Tests\debug_net10.0\XUnitProject1.Tests.
 or 
 
 ```shell
-dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj  --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix NUnitProject1
+dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix NUnitProject1
 ```
 
 Another option is to use MSBuild properties to enable code coverage, which is useful when you want to run tests from an IDE. You can add the following properties to your project file:
