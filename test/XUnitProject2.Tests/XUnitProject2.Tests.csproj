@@ -19,4 +19,10 @@
     <ProjectReference Include="..\..\src\ClassLibrary2\ClassLibrary2.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="coverlet.mtp.appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
