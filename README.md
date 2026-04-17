@@ -27,6 +27,15 @@ or
 dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix NUnitProject1
 ```
 
+or using configuration files
+
+```shell
+# coverlet.mtp.appsettings.json
+dotnet test --project test\XUnitProject2.Tests\XUnitProject2.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject2
+# testconfig.json
+dotnet test --project test\XUnitProject3.Tests\XUnitProject3.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject3
+```
+
 Another option is to use MSBuild properties to enable code coverage, which is useful when you want to run tests from an IDE. You can add the following properties to your project file:
 ```xml
 <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results</TestingPlatformCommandLineArguments>
