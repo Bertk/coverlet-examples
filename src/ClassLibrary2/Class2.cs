@@ -1,10 +1,16 @@
+using System;
+
 namespace ClassLibrary2
 {
   public static class Class2
+  {
+    public static int Test2(int n)
     {
-        public static int Method()
-        {
-            return 42;
-        }
+      if (n < 10)
+      {
+        n = Random.Shared.Next();
+      }
+      return n;
     }
+  }
 }

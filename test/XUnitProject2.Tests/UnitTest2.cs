@@ -3,11 +3,12 @@ using Xunit;
 namespace XUnitTestProject2
 {
   public class UnitTest2
+  {
+    [Fact]
+    public static void Test2()
     {
-        [Fact]
-        public void Test2()
-        {
-            Assert.Equal(42, ClassLibrary2.Class2.Method());
-        }
+      int ret = ClassLibrary2.Class2.Test2(12);
+      Assert.Equal(12, ret);
     }
+  }
 }
