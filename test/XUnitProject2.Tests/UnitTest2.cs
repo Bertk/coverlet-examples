@@ -2,7 +2,7 @@ using Xunit;
 
 namespace XUnitTestProject2
 {
-  public class UnitTest2
+  public static class UnitTest2
   {
     [Fact]
     public static void Test2()
