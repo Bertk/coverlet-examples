@@ -40,6 +40,11 @@ Another option is to use MSBuild properties to enable code coverage, which is us
 ```xml
 <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results</TestingPlatformCommandLineArguments>
 ```
+This property is used in XUnitProject3.Tests.csproj, so you can simply run the test with the following command:
+
+```shell
+dotnet test --project test\XUnitProject3.Tests\XUnitProject3.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal
+```
 
 With this property you can simply run the test and get code coverage without additional MTP arguments:
 

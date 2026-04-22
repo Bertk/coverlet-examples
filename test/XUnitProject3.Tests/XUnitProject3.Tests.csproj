@@ -8,6 +8,7 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <TestingPlatformCommandLineArguments Condition="'$(GITHUB_ACTIONS)' == ''">--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --results-directory artifacts/results --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix $(AssemblyName)</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <ItemGroup>
