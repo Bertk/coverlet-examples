@@ -8,6 +8,7 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <TestingPlatformCommandLineArguments>--coverlet --coverlet-file-prefix $(AssemblyName) --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix $(AssemblyName)</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <ItemGroup>
