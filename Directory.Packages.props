@@ -31,6 +31,6 @@
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.2.1" />
     <PackageVersion Include="xunit.v3.mtp-v2" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.runner.msbuild" Version="$(XunitV3Version)" />
-    <PackageVersion Include="System.CommandLine" Version="2.0.6" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.7" />
   </ItemGroup>
 </Project>
