@@ -26,6 +26,11 @@ or
 ```shell
 dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix NUnitProject1
 ```
+or 
+
+```shell
+dotnet test --project test\MSTestProject1.Tests\MSTestProject1.Tests.csproj --report-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix MSTestProject1 --coverlet-exclude "[MSTest*]*"
+```
 
 or using configuration files
 
