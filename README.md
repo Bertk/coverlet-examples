@@ -29,7 +29,7 @@ dotnet test --project test\NUnitProject1.Tests\NUnitProject1.Tests.csproj --repo
 or 
 
 ```shell
-dotnet test --project test\MSTestProject1.Tests\MSTestProject1.Tests.csproj --report-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix MSTestProject1 --coverlet-exclude "[MSTest*]*"
+dotnet test --project test\MSTestProject1.Tests\MSTestProject1.Tests.csproj --report-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix MSTestProject1 --coverlet-exclude "[MSTest*]*" --report-trx-filename MSTestProject1.trx
 ```
 
 or using configuration files
