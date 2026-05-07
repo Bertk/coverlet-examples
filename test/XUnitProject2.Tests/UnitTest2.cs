@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace XUnitTestProject2
+namespace XUnitProject2.Tests
 {
   public static class UnitTest2
   {
