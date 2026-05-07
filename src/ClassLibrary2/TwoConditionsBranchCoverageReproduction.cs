@@ -30,7 +30,7 @@ public class TwoConditionsBranchCoverageReproduction
     return number != null && number == 2;
   }
 
-  public bool ExecuteReturnBoolenValue(int number)
+  public bool ExecuteReturnBooleanValue(int number)
   {
     if (number == 1 || number == 2)
     {

@@ -26,6 +26,6 @@ public class CustomException : InvalidOperationException
   [DoesNotReturn]
   public static void Throw(int id)
   {
-    throw new CustomException($"Id is not allowed");
+    throw new CustomException($"Id '{id}' is not allowed");
   }
 }

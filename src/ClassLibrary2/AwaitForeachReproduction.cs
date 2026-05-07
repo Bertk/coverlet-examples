@@ -22,7 +22,7 @@ public class AwaitForeachReproduction
   {
     for (int i = 0; i < 100; i++)
     {
-      await Task.Delay(10);
+      await Task.Yield();
       yield return i;
     }
   }

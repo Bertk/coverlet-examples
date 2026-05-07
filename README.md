@@ -281,5 +281,5 @@ Extension Options:
 >
 > ```shell
 > dotnet test --project test\XUnitProject2.Tests\XUnitProject2.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject2
-> reportgenerator "-reports:artifacts\results\coverage.cobertura*.xml" "-targetdir:artifacts\CoverageReport" '-reporttypes:HtmlInline_AzurePipelines;Cobertura;Markdown' -verbosity:Verbose`
+> reportgenerator "-reports:artifacts\results\coverage.cobertura*.xml" "-targetdir:artifacts\CoverageReport" '-reporttypes:HtmlInline_AzurePipelines;Cobertura;Markdown' -verbosity:Verbose
 > ```

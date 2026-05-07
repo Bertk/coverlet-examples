@@ -19,6 +19,6 @@ public class ExcludedLocalFunctionReproduction
 
   private void MethodThatTakesALambda(Func<string, bool> function)
   {
-    bool _ = function != null;
+    _ = function != null;
   }
 }

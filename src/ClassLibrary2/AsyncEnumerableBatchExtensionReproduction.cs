@@ -7,7 +7,7 @@ public static class AsyncEnumerableBatchExtensionReproduction
 {
   public static async IAsyncEnumerable<IAsyncEnumerable<T>> ExecuteReproduction<T>(this IAsyncEnumerable<T> source, int batchSize)
   {
-    var enumerator = source.GetAsyncEnumerator();
+    await using IAsyncEnumerator<T> enumerator = source.GetAsyncEnumerator();
 
     while (await enumerator.MoveNextAsync())
     {

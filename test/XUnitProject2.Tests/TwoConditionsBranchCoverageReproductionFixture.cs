@@ -28,13 +28,13 @@ public class TwoConditionsBranchCoverageReproductionFixture
     sut.ExecuteReproduction3(2);
     sut.ExecuteReproduction3(3);
 
-    // Can be reproduces with logical AND too.
+    // Can be reproduced with logical AND too.
     // First condition is never false (number != null)
     sut.ExecuteReproduction4(2);
     sut.ExecuteReproduction4(3);
 
-    sut.ExecuteReturnBoolenValue(2);
-    sut.ExecuteReturnBoolenValue(3);
+    sut.ExecuteReturnBooleanValue(2);
+    sut.ExecuteReturnBooleanValue(3);
 
     // Test identical methods where the second condition is never true (number == 2)
     // This way the branch coverage is full
