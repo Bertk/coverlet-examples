@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  
+
   <PropertyGroup>
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
     <DebugType>portable</DebugType>
@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="xunit.v3.mtp-v2" />
-  </ItemGroup>
+   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
