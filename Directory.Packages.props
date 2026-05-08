@@ -14,8 +14,8 @@
     <PackageVersion Include="coverlet.msbuild" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.collector" Version="$(CoverletVersion)" />
     <PackageVersion Include="Google.Protobuf" Version="3.34.1" />
-    <PackageVersion Include="Grpc.AspNetCore" Version="2.76.0" />
-    <PackageVersion Include="Grpc.Net.Client" Version="2.76.0" />
+    <PackageVersion Include="Grpc.AspNetCore" Version="2.80.0" />
+    <PackageVersion Include="Grpc.Net.Client" Version="2.80.0" />
     <PackageVersion Include="Grpc.Tools" Version="2.80.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
     <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.7" />
@@ -33,5 +33,6 @@
     <PackageVersion Include="xunit.v3.mtp-v2" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.runner.msbuild" Version="$(XunitV3Version)" />
     <PackageVersion Include="System.CommandLine" Version="2.0.7" />
+    <PackageVersion Include="System.Linq.AsyncEnumerable" Version="10.0.7" />
   </ItemGroup>
 </Project>
