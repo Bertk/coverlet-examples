@@ -296,7 +296,7 @@ Extension Options:
 ### run test binary creates additional output
 
 > [!Tip]
-> Sarting the binary will show additional output which is not available using `dotnet test ...` command.
+> Running the test assembly via `dotnet exec` produces additional output compared  using to `dotnet test`
 >
 > ```shell
 > dotnet exec artifacts\bin\XUnitProject2.Tests\debug_net10.0\XUnitProject2.Tests.dll --coverlet --coverlet-output-format teamcity --coverlet-output-format cobertura  --diagnostic --diagnostic-verbosity trace --diagnostic-output-directory artifacts\results\ --diagnostic-file-prefix XUnitProject2.Tests
