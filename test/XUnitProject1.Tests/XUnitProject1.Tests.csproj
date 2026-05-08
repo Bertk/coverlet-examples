@@ -13,8 +13,7 @@
   <ItemGroup>
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="xunit.v3.mtp-v2" />
-    <PackageReference Include="System.Linq.AsyncEnumerable" />
-  </ItemGroup>
+   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />

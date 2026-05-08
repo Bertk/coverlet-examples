@@ -16,7 +16,10 @@ public class AsyncEnumerableBatchExtensionReproductionFixture
 
         // Act
         IAsyncEnumerable<IAsyncEnumerable<int>> batches = enumerable.ExecuteReproduction(10);
-        await batches.Select(batch => batch.ToArrayAsync()).ToArrayAsync();
+         await foreach (IAsyncEnumerable<int> batch in batches)
+         {
+             await batch.ToArrayAsync();
+         }
 
         // Assert
         // no assert
