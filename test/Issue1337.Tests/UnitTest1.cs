@@ -58,4 +58,44 @@ public class DoerOfStuffTests
     // Cleanup
     File.Delete(filePath);
   }
+
+    [Test]
+  public async Task Test2_ActualWork_LogsError_WhenExceptionOccurs()
+  {
+    // Arrange
+    var data = new Issue1337.Data(1, "test");
+
+    _loggerMock
+      .Setup(x => x.Log(
+        LogLevel.Information,
+        It.IsAny<EventId>(),
+        It.Is<It.IsAnyType>((v, t) => v.ToString()!.Contains("Res")),
+        It.IsAny<Exception?>(),
+        It.IsAny<Func<It.IsAnyType, Exception?, string>>()))
+      .Throws(new InvalidOperationException("Simulated failure"));
+
+    // Act
+    _sut.StartWithoutWaiting(data);
+    await Task.Delay(500); // Allow background task to complete
+
+    // Assert: catch block — LogError
+    _loggerMock.Verify(
+      x => x.Log(
+        LogLevel.Error,
+        It.IsAny<EventId>(),
+        It.Is<It.IsAnyType>((v, t) => v.ToString()!.Contains("Something bad happened")),
+        It.IsAny<Exception>(),
+        It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
+      Times.Once);
+
+    // Assert: finally block still runs
+    _loggerMock.Verify(
+      x => x.Log(
+        LogLevel.Information,
+        It.IsAny<EventId>(),
+        It.Is<It.IsAnyType>((v, t) => v.ToString()!.Contains("I'm finally here")),
+        It.IsAny<Exception?>(),
+        It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
+      Times.Once);
+  }
 }
