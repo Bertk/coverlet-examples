@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 // use this command for test execution and coverage collection:
 // dotnet run --project test\Issue1337.Tests\Issue1337.Tests.csproj --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-exclude [Moq]* --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix Issue1337
 
-namespace Issue_1337;
+namespace Issue1337.Tests;
 
 public class DoerOfStuffTests
 {
