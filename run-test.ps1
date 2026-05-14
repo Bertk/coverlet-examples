@@ -38,7 +38,7 @@ if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-if (-not (dotnet tool list | Select-String 'reportgenerator')) {
+if (-not (dotnet tool list --local | Select-String 'reportgenerator')) {
     Write-Error "reportgenerator is not installed. Run: dotnet tool restore"
     exit 1
 }
