@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
+    <TargetFrameworks>$(NetCurrent)</TargetFrameworks>
     <DebugType>portable</DebugType>
     <OutputType>Exe</OutputType>
     <IsPackable>false</IsPackable>
@@ -13,16 +13,16 @@
   <ItemGroup>
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="xunit.v3.mtp-v2" />
-   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="testconfig.json">
+    <ProjectReference Include="..\..\src\ClassIssue1334\ClassIssue1334.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="coverlet.mtp.appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  
+
 </Project>
