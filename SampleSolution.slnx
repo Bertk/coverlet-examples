@@ -1,4 +1,18 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BranchIssues/BranchIssues.csproj" />
+    <Project Path="src/ClassIssue1334/ClassIssue1334.csproj" />
+    <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
+    <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/BranchIssues.Tests/BranchIssues.Tests.csproj" />
+    <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <Project Path="test/Issue1334.Tests/Issue1334.Tests.csproj" />
+    <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
+    <Project Path="test/NUnitProject1.Tests/NUnitProject1.Tests.csproj" />
+    <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
+  </Folder>
   <Folder Name="/_Solution Folder/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
@@ -9,23 +23,8 @@
     <File Path="LICENSE" />
     <File Path="nuget.config" />
     <File Path="README.md" />
+    <File Path="run-test.ps1" />
     <File Path="version.json" />
-  </Folder>
-  <Folder Name="/ClassLib/">
-    <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
-    <Project Path="src/ClassLibrary2/ClassLibrary2.csproj" />
-    <Project Path="src/ClassLibrary3/ClassLibrary3.csproj" />
-    <Project Path="src/Issue1337/Issue1337.csproj" />
-    <Project Path="test/Issue1337.Tests/Issue1337.Tests.csproj" />
-    <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
-    <Project Path="test/NUnitProject1.Tests/NUnitProject1.Tests.csproj" />
-    <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
-    <Project Path="test/XUnitProject2.Tests/XUnitProject2.Tests.csproj" />
-    <Project Path="test/XUnitProject3.Tests/XUnitProject3.Tests.csproj" />
-  </Folder>
-  <Folder Name="/ConsoleApp/">
-    <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
-    <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/Github Action/">
     <File Path=".github/workflows/dotnet.yml" />

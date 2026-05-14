@@ -74,37 +74,22 @@ jobs:
         with:
           global-json-file: './global.json'
 
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore
-      - name: Tests
-        run: |
-          dotnet test --no-build --project test/ConsoleApp.Tests/ConsoleApp.Tests.csproj --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix ConsoleApp
-          dotnet test --no-build --project test/XUnitProject1.Tests/XUnitProject1.Tests.csproj --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
-          dotnet test --no-build --project test/XUnitProject2.Tests/XUnitProject2.Tests.csproj --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject2
-          dotnet test --no-build --project test/XUnitProject3.Tests/XUnitProject3.Tests.csproj --report-xunit-trx --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject3
-          # dotnet test --no-build --project test/NUnitProject1.Tests/NUnitProject1.Tests.csproj --framework ${{ matrix.framework }} --verbosity normal --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix NUnitProject1 --coverlet-exclude [NUnit3.*]*
-          #  dotnet test --solution SampleSolution.slnx --report-xunit-trx --framework ${{ matrix.framework }} --coverlet --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace
-          # run: dotnet test --framework ${{ matrix.framework }} --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+      - name: Restore dotnet tools
+        run: dotnet tool restore
 
-      - name: ReportGenerator
-        uses: danielpalme/ReportGenerator-GitHub-Action@5.5.7
-        with:
-          reports: ./artifacts/**/coverage.cobertura.*.xml
-          assemblyfilters: -xunit*
-          targetdir: ./artifacts/CoverageReport
-          reporttypes: HtmlInline;Cobertura;MarkdownSummaryGithub
+      - name: Tests and coverage report
+        run: ./run-test.ps1
+        shell: pwsh
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v3
         if: github.event_name == 'pull_request'
         with:
           recreate: true
-          path: ./artifacts/CoverageReport/SummaryGithub.md
+          path: ./artifacts/CoverageReport/Summary.md
 
       - name: Write to Job Summary
-        run: cat ./artifacts/CoverageReport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY
+        run: cat ./artifacts/CoverageReport/Summary.md >> $GITHUB_STEP_SUMMARY
         shell: bash
 
       - name: Upload coverage report artifact
