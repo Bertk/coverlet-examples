@@ -1,6 +1,6 @@
-namespace Issue1786;
-
 using System;
+
+namespace Issue1786;
 
 public static class Class1
 {

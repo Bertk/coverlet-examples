@@ -99,6 +99,17 @@ dotnet run -c Debug --no-build `
 Write-Step "Running xUnit test projects"
 
 dotnet run -c Debug --no-build `
+    --project test/ConsoleApp.Tests/ConsoleApp.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix ConsoleApp
+
+dotnet run -c Debug --no-build `
     --project test/XUnitProject1.Tests/XUnitProject1.Tests.csproj `
     --report-xunit-trx `
     --framework net10.0 `
