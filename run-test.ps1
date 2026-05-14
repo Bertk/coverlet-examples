@@ -142,8 +142,8 @@ dotnet run -c Debug --no-build `
 # ---------------------------------------------------------------------------
 Write-Step "Generating coverage report"
 dotnet tool run reportgenerator `
-    "-reports:artifacts\results\coverage.cobertura*.xml" `
-    "-targetdir:artifacts\CoverageReport" `
+    "-reports:artifacts/results/coverage.cobertura*.xml" `
+    "-targetdir:artifacts/CoverageReport" `
     "-reporttypes:HtmlInline_AzurePipelines;Cobertura;Markdown" `
     -verbosity:Verbose
 
