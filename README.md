@@ -36,7 +36,7 @@ or using configuration files
 
 ```shell
 # testconfig.json
-dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix BranchIssues
+dotnet test --project test\XUnitProject1.Tests\XUnitProject1.Tests.csproj --report-xunit-trx --framework net10.0 --verbosity normal --coverlet --diagnostic --diagnostic-verbosity trace --results-directory artifacts/results --diagnostic-file-prefix XUnitProject1
 ```
 
 Another option is to use MSBuild properties to enable code coverage, which is useful when you want to run tests from an IDE. You can add the following properties to your project file:
