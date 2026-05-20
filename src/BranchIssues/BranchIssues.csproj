@@ -12,7 +12,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging" />
     <PackageReference Include="AWSSecretsManager.Provider" />
     <PackageReference Include="Microsoft.Extensions.Configuration" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
   </ItemGroup>
 
 </Project>
