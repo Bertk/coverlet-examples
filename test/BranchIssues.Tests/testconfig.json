@@ -1,0 +1,10 @@
+{
+  "platformOptions": {
+    "Coverlet": {
+      "Exclude": "[*.Tests]*",
+      "Format": "cobertura,json,lcov,opencover",
+      "SkipAutoProps": true,
+      "ExcludeAssembliesWithoutSources": "MissingAll"
+    }
+  }
+}

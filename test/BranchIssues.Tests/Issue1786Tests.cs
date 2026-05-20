@@ -7,12 +7,12 @@ public static class Class1Tests
   //[Test]
   //public static void Test1()
   //{
-  //  Class1.Test1(12);
+  //  Class1786.Test1(12);
   //}
 
   [Test]
   public static void Test2()
   {
-    Class1.Test1(2);
+    Class1786.Test1(2);
   }
 }
