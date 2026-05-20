@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using Issue1717;
 
-namespace Issue1717Tests;
+namespace Issue1717.Tests;
 
 public class Issue1717Tests
 {
@@ -11,6 +11,6 @@ public class Issue1717Tests
   public void TestMethodAsync()
   {
     var sut = new Class1717();
-    Assert.ThrowsAsync<Exception>(async () => await sut.ThrowMethodWithMessageAsync("Test Message"));
+    Assert.ThrowsAsync<Exception>(async () => await sut.ThrowMethodWithMessageAsync("Test Message").ConfigureAwait(false));
   }
 }
