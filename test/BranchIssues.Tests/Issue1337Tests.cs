@@ -34,6 +34,7 @@ public class DoerOfStuffTests
     await Task.Delay(500); // Allow background task to complete
 
     // Assert
+#pragma warning disable CA1873 // Avoid potentially expensive logging
     _loggerMock.Verify(
       x => x.Log(
         LogLevel.Information,
@@ -42,7 +43,11 @@ public class DoerOfStuffTests
         null,
         It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
       Times.Once);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+#pragma warning disable CA1873 // Avoid potentially expensive logging
     _loggerMock.Verify(
       x => x.Log(
         LogLevel.Information,
@@ -51,20 +56,26 @@ public class DoerOfStuffTests
         null,
         It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
       Times.Once);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
+#pragma warning restore CA1873 // Avoid potentially expensive logging
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
     Assert.That(File.Exists(filePath), Is.True);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
     Assert.That(await File.ReadAllTextAsync(filePath), Is.EqualTo("Hello World"));
 
     // Cleanup
     File.Delete(filePath);
   }
 
-    [Test]
+  [Test]
   public async Task Test2_ActualWork_LogsError_WhenExceptionOccurs()
   {
     // Arrange
     var data = new Issue1337.Data(1, "test");
 
+#pragma warning disable CA1873 // Avoid potentially expensive logging
+#pragma warning disable IDE0058 // Expression value is never used
     _loggerMock
       .Setup(x => x.Log(
         LogLevel.Information,
@@ -73,6 +84,8 @@ public class DoerOfStuffTests
         It.IsAny<Exception?>(),
         It.IsAny<Func<It.IsAnyType, Exception?, string>>()))
       .Throws(new InvalidOperationException("Simulated failure"));
+#pragma warning restore IDE0058 // Expression value is never used
+#pragma warning restore CA1873 // Avoid potentially expensive logging
 
     // Act
     _sut.StartWithoutWaiting(data);
@@ -89,6 +102,7 @@ public class DoerOfStuffTests
       Times.Once);
 
     // Assert: finally block still runs
+#pragma warning disable CA1873 // Avoid potentially expensive logging
     _loggerMock.Verify(
       x => x.Log(
         LogLevel.Information,
@@ -97,5 +111,6 @@ public class DoerOfStuffTests
         It.IsAny<Exception?>(),
         It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
       Times.Once);
+#pragma warning restore CA1873 // Avoid potentially expensive logging
   }
 }
