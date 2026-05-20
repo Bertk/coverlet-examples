@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
       <TargetFrameworks>$(NetCurrent)</TargetFrameworks>
@@ -26,6 +26,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\BranchIssues\BranchIssues.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="testconfig.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

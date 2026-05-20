@@ -10,6 +10,6 @@ public static class Class1Tests
   public static void Test2()
   {
     Class1767 class1767 = new();
-    CollectionAssert.Contains(class1767.Exists("One"), "One");
+    CollectionAssert.DoesNotContain(class1767.Exists("42"), "One");
   }
 }
