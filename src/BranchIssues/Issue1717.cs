@@ -6,7 +6,7 @@ namespace Issue1717
 {
   public class Class1717
   {
-    public static class ThrowHelper
+    internal static class ThrowHelper
     {
       [DoesNotReturn]
       public static void Throw(Exception e)
