@@ -1,7 +1,8 @@
 {
   "platformOptions": {
     "Coverlet": {
-      "Exclude": "[*.Tests]*",
+      "Exclude": "[*.Tests]*,[NUnit3.*]*",
+      "ExcludeByAttribute": "ExcludeFromCodeCoverage",
       "Format": "cobertura,json,lcov,opencover",
       "SkipAutoProps": true,
       "ExcludeAssembliesWithoutSources": "MissingAll"
