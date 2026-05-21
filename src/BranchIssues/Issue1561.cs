@@ -4,7 +4,9 @@ namespace Issue1561
 {
   public class MyAsyncClass
   {
-    static public async Task<int> DoAsyncAction()
+#pragma warning disable CA1822 // Mark members as static
+    public async Task<int> DoAsyncAction()
+#pragma warning restore CA1822 // Mark members as static
     {
       return await Task.FromResult<int>(1);
     }
