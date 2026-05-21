@@ -4,7 +4,7 @@ using Issue1717;
 
 namespace Issue1717.Tests;
 
-public class Issue1717Tests
+public class Class1717Tests
 {
 
   [Test]
