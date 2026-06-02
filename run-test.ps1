@@ -71,6 +71,9 @@ Write-Host "Build succeeded." -ForegroundColor Green
 #     --results-directory     : where .trx result files and coverage XML land
 # ---------------------------------------------------------------------------
 
+# enable experimental Coverlet feature to cache auto-property backing fields for better performance and branch coverage accuracy
+$Env:COVERLET_EXPERIMENTAL_AUTOPROP_BACKING_FIELD_CACHE = "1"
+
 Write-Step "Running NUnit test projects"
 
 dotnet run -c Debug --no-build `
