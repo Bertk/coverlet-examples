@@ -9,16 +9,24 @@ public class FolderServiceTests
   [Test]
   public void MapToInfo_WhenModeIsNullOrEmpty_IsHiddenIsFalse()
   {
-    var source = new FolderSource { Mode = null, Creation = 42 };
+    FolderSource source = new() { Mode = null, Creation = 42 };
     FolderInfoDto result = FolderService.MapToInfo(source);
     result.IsHidden.Should().BeFalse();
     result.Creation.Should().Be(42);
   }
 
   [Test]
+  public void MapToInfo_WhenModeIsShorterThanFourChars_IsHiddenIsFalse()
+  {
+    FolderSource source = new() { Mode = "rwx", Creation = 10 };
+    FolderInfoDto result = FolderService.MapToInfo(source);
+    result.IsHidden.Should().BeFalse();
+  }
+
+  [Test]
   public void MapToInfo_WhenModeFourthCharIsNotH_IsHiddenIsFalse()
   {
-    var source = new FolderSource { Mode = "rwxr", Creation = 10 };
+    FolderSource source = new() { Mode = "rwxr", Creation = 10 };
     FolderInfoDto result = FolderService.MapToInfo(source);
     result.IsHidden.Should().BeFalse();
   }
@@ -26,7 +34,7 @@ public class FolderServiceTests
   [Test]
   public void MapToInfo_WhenModeFourthCharIsH_IsHiddenIsTrue()
   {
-    var source = new FolderSource { Mode = "rwxh", Creation = 10 };
+    FolderSource source = new() { Mode = "rwxh", Creation = 10 };
     FolderInfoDto result = FolderService.MapToInfo(source);
     result.IsHidden.Should().BeTrue();
   }
@@ -41,7 +49,7 @@ public class FolderServiceTests
   [Test]
   public void BuildCreateDto_WhenArgsHasPath_UsesProvidedPath()
   {
-    var args = new Dictionary<string, object> { ["path"] = @"C:\custom\path" };
+    Dictionary<string, object> args = new() { ["path"] = @"C:\custom\path" };
     CreateFolderDto dto = FolderService.BuildCreateDto(args);
     dto.Path.Should().Be(@"C:\custom\path");
   }
@@ -49,7 +57,7 @@ public class FolderServiceTests
   [Test]
   public void BuildCreateDto_WhenArgsHasNoPathKey_UsesDefaultPath()
   {
-    var args = new Dictionary<string, object> { ["other"] = "value" };
+    Dictionary<string, object> args = new() { ["other"] = "value" };
     CreateFolderDto dto = FolderService.BuildCreateDto(args);
     dto.Path.Should().Be(@"F:\rep1\rep2");
   }

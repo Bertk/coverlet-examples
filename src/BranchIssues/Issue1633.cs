@@ -36,7 +36,7 @@ public static class FolderService
     return new()
     {
       Creation = f.Creation,
-      IsHidden = !string.IsNullOrEmpty(f.Mode) && 'h' == f.Mode[3]
+      IsHidden = f.Mode is { Length: > 3 } mode && mode[3] == 'h'
     };
   }
 
@@ -45,8 +45,8 @@ public static class FolderService
   {
     return new()
     {
-      Path = args != null && args.TryGetValue("path", out var path)
-        ? (string)path
+      Path = args != null && args.TryGetValue("path", out var path) && path is string s
+         ? s
         : @"F:\rep1\rep2",
     };
   }

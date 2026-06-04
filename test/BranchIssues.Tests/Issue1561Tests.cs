@@ -8,7 +8,7 @@ public class MyClassTests
   [Test]
   public async Task TestAsyncMethod()
   {
-    MyAsyncClass obj = new MyAsyncClass();
+    MyAsyncClass obj = new();
     int result = await obj.DoAsyncAction();
     Assert.AreEqual(1, result);
   }
@@ -16,7 +16,7 @@ public class MyClassTests
   [Test]
   public void Constructor()
   {
-    MyRecord myRecord = new MyRecord(1);
+    MyRecord myRecord = new(1);
     Assert.AreEqual(1, myRecord.A);
   }
 }

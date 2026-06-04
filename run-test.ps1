@@ -150,8 +150,8 @@ dotnet run -c Debug --no-build `
 Write-Step "Running test with dotnet-reportgenerator-mtp extension"
 
 dotnet run -c Debug --no-build `
-    --project test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj `
-    --report-trx --report-trx-filename Mtp1934.Core.Tests.trx `
+    --project test/Mtp1934.Core.Test/Mtp1934.Core.Test.csproj `
+    --report-trx --report-trx-filename Mtp1934.Core.Test.trx `
     --framework net10.0 `
     --results-directory ./artifacts/results `
     --verbosity normal `
