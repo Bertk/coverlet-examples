@@ -4,12 +4,14 @@
     <Project Path="src/ClassIssue1334/ClassIssue1334.csproj" />
     <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
     <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
+    <Project Path="src/Mtp1934.Core/Mtp1934.Core.csproj" />
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/BranchIssues.Tests/BranchIssues.Tests.csproj" />
     <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
     <Project Path="test/Issue1334.Tests/Issue1334.Tests.csproj" />
     <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
+    <Project Path="test/Mtp1934.Core.Test/Mtp1934.Core.Test.csproj" />
     <Project Path="test/NUnitProject1.Tests/NUnitProject1.Tests.csproj" />
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
   </Folder>
