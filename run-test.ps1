@@ -147,6 +147,20 @@ dotnet run -c Debug --no-build `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MSTestProject1
 
+Write-Step "Running test with dotnet-reportgenerator-mtp extension"
+
+dotnet run -c Debug --no-build `
+    --project test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj `
+    --report-trx --report-trx-filename Mtp1934.Core.Tests.trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix Mtp1934.Core
+#   --reportgenerator
+
 # ---------------------------------------------------------------------------
 # Step 4 – Merge all Cobertura XML files and generate the HTML coverage report.
 #           Output formats:
