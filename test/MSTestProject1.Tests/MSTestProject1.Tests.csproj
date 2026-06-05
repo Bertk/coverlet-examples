@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="MSTest" />
+    <!--<PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />-->
   </ItemGroup>
 
   <ItemGroup>

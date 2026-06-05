@@ -134,11 +134,22 @@ dotnet run -c Debug --no-build `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue1334
 
+dotnet run -c Debug --no-build `
+    --project test/MediatorApp.Tests/MediatorApp.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix MediatorApp
+
 Write-Step "Running MSTest test projects"
 
 dotnet run -c Debug --no-build `
     --project test/MSTestProject1.Tests/MSTestProject1.Tests.csproj `
-    --report-trx --report-trx-filename MSTestProject1.trx `
+    --report-trx --report-trx-filename MSTestProject1.Tests.trx `
     --framework net10.0 `
     --results-directory ./artifacts/results `
     --verbosity normal `
@@ -150,8 +161,8 @@ dotnet run -c Debug --no-build `
 Write-Step "Running test with dotnet-reportgenerator-mtp extension"
 
 dotnet run -c Debug --no-build `
-    --project test/Mtp1934.Core.Test/Mtp1934.Core.Test.csproj `
-    --report-trx --report-trx-filename Mtp1934.Core.Test.trx `
+    --project test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj `
+    --report-xunit-trx `
     --framework net10.0 `
     --results-directory ./artifacts/results `
     --verbosity normal `
