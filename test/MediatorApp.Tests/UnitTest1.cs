@@ -1,7 +1,6 @@
 using Mediator;
 using MediatorApp1718;
 using Microsoft.Extensions.DependencyInjection;
-using Repro.Application;
 
 namespace MediatorApp.Tests;
 
