@@ -141,6 +141,7 @@ dotnet run -c Debug --no-build `
     --results-directory ./artifacts/results `
     --verbosity normal `
     --coverlet `
+    --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MediatorApp
