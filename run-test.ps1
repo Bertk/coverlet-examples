@@ -146,6 +146,18 @@ dotnet run -c Debug --no-build `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MediatorApp
 
+dotnet run -c Debug --no-build `
+    --project test/Issue1417.Tests/Issue1417.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-exclude-assemblies-without-sources MissingAll `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix Issue1417
+
 Write-Step "Running MSTest test projects"
 
 dotnet run -c Debug --no-build `
