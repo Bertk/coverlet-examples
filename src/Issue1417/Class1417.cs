@@ -17,7 +17,7 @@ namespace Issue1417
     {
       E value = GetValue();
 
-      switch (value) // line 16
+      switch (value)
       {
         case E.A:
           PerformActionA();
