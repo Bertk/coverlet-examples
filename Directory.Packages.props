@@ -42,7 +42,7 @@
     <!--<PackageVersion Include="xunit.v3" Version="$(XunitV3Version)" />-->
     <PackageVersion Include="xunit.v3.mtp-v2" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.runner.msbuild" Version="$(XunitV3Version)" />
-    <PackageVersion Include="System.CommandLine" Version="2.0.8" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.9" />
     <PackageVersion Include="System.Linq.AsyncEnumerable" Version="10.0.8" />
   </ItemGroup>
 </Project>
