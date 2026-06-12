@@ -37,6 +37,7 @@ jobs:
         # Use only 'java' to analyze code written in Java, Kotlin or both
         # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+        build-mode: "none" # Use "auto" for automatic build detection, or "none" to skip the build step.
 
     steps:
     - name: Checkout repository
