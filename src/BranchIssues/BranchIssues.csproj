@@ -6,6 +6,7 @@
       <OutputType>Library</OutputType>
       <!--<ImplicitUsings>enable</ImplicitUsings>-->
       <DebugType>portable</DebugType>
+      <NoWarn>$(NoWarn);CA1822;CA1848;CA1873;CA2201;CA2254;S1075;S1118;S1854;S2629</NoWarn>
     </PropertyGroup>
 
   <ItemGroup>

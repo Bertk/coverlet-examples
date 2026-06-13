@@ -5,6 +5,8 @@
     <DebugType>portable</DebugType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);S2223</NoWarn>
+
   </PropertyGroup>
 
   <ItemGroup>

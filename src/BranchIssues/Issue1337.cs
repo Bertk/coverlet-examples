@@ -36,8 +36,8 @@ public class DoerOfStuff
     finally
     {
       _log.LogInformation("I'm finally here");
-      string filePath = "simple.txt";
-      string text = $"Hello World";
+      const string filePath = "simple.txt";
+      const string text = $"Hello World";
 
       await File.WriteAllTextAsync(filePath, text);
     }
