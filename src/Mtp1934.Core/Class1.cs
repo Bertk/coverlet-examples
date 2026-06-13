@@ -1,10 +1,10 @@
-﻿namespace Mtp1934.Core
+namespace Mtp1934.Core
 {
-    public class Class1
+  public class Class1
+  {
+    public static int Add(int a, int b)
     {
-        public static int Add(int a, int b)
-        {
-            return a + b;
-        }
+      return a + b;
     }
+  }
 }

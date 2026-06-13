@@ -8,6 +8,7 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <NoWarn>$(NoWarn);S125;S2699;S4144;S1118;CA1822;CA1852</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
