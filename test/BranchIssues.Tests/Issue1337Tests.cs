@@ -1,9 +1,9 @@
-using Microsoft.Extensions.Logging;
-using Moq;
-using NUnit.Framework;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Moq;
+using NUnit.Framework;
 
 // use this command for test execution and coverage collection:
 // dotnet run --project test\BranchIssues.Tests\BranchIssues.Tests.csproj --report-trx --framework net10.0 --results-directory artifacts/results --verbosity normal --coverlet --coverlet-exclude [Moq]* --coverlet-output-format cobertura --diagnostic --diagnostic-verbosity trace --diagnostic-file-prefix BranchIssues
@@ -27,7 +27,7 @@ public class DoerOfStuffTests
   {
     // Arrange
     var data = new Issue1337.Data(1, "test");
-    var filePath = "simple.txt";
+    string filePath = "simple.txt";
 
     // Act
     _sut.StartWithoutWaiting(data);

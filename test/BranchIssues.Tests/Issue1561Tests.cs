@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Issue1561.Tests;
 

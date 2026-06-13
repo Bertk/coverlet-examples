@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions;
-using NUnit.Framework;
 using NSubstitute;
+using NUnit.Framework;
 
 namespace Issue1644.Tests
 {

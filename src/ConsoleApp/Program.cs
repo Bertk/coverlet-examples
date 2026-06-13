@@ -2,10 +2,11 @@ using System.CommandLine;
 using System.CommandLine.Help;
 
 namespace ConsoleApp;
+
 static class Program
 {
-static async Task Main(string[] args)
-{
+  static async Task Main(string[] args)
+  {
     Option<int> delayOption = new("--delay") { Description = "delay in seconds", DefaultValueFactory = (_) => 42 };
     Option<string> calculateOption = new("--calculate") { DefaultValueFactory = (_) => "add", Required = false, Arity = ArgumentArity.ZeroOrOne };
     calculateOption.AcceptOnlyFromAmong("add", "subtract", "multiply", "Divide");
@@ -31,29 +32,29 @@ static async Task Main(string[] args)
 
     await parseResult.InvokeAsync().ConfigureAwait(false);
 
-}
+  }
 
-public static void DoRootCommand(int delay, string message, string calculate)
-{
+  public static void DoRootCommand(int delay, string message, string calculate)
+  {
     Console.WriteLine($"--delay = {delay}");
     Console.WriteLine($"--message = {message}");
-  if (!string.IsNullOrEmpty(calculate))
-  {
-    Console.WriteLine($"--calculate = {calculate}");
+    if (!string.IsNullOrEmpty(calculate))
+    {
+      Console.WriteLine($"--calculate = {calculate}");
       switch (calculate)
-      { 
+      {
         case "add":
-        _ = Calculate.Add(10, 5);
-        break;
-      case "subtract":
-        _ = Calculate.Subtract(10, 5);
-        break;
-      case "multiply":
-        _ = Calculate.Multiply(10, 5);
-        break;
-      case "divide":
-        _ = Calculate.Divide(10, 5);
-        break;
+          _ = Calculate.Add(10, 5);
+          break;
+        case "subtract":
+          _ = Calculate.Subtract(10, 5);
+          break;
+        case "multiply":
+          _ = Calculate.Multiply(10, 5);
+          break;
+        case "divide":
+          _ = Calculate.Divide(10, 5);
+          break;
       }
     }
   }
