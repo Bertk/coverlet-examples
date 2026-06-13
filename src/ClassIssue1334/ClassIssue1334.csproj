@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
     <DebugType>portable</DebugType>
+    <NoWarn>$(NoWarn);CA1822;CA1852;S1118;S4144;</NoWarn>
   </PropertyGroup>
 
 </Project>

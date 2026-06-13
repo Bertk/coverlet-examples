@@ -27,7 +27,7 @@ public class DoerOfStuffTests
   {
     // Arrange
     var data = new Issue1337.Data(1, "test");
-    var filePath = "simple.txt";
+    string filePath = "simple.txt";
 
     // Act
     _sut.StartWithoutWaiting(data);

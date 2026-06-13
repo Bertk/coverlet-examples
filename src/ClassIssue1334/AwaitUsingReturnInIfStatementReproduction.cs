@@ -14,8 +14,8 @@ public class AwaitUsingReturnInIfStatementReproduction
     {
       byte[] bytes = Encoding.ASCII.GetBytes("Words");
       await using var stream = new MemoryStream(bytes);
-      var byteArray = new byte[stream.Length];
-      var count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
+      byte[] byteArray = new byte[stream.Length];
+      int count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
       return count;
     }
 
@@ -26,8 +26,8 @@ public class AwaitUsingReturnInIfStatementReproduction
   {
     byte[] bytes = Encoding.ASCII.GetBytes("Words");
     await using var stream = new MemoryStream(bytes);
-    var byteArray = new byte[stream.Length];
-    var count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
+    byte[] byteArray = new byte[stream.Length];
+    int count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
     return count;
   }
 
@@ -38,8 +38,8 @@ public class AwaitUsingReturnInIfStatementReproduction
       byte[] bytes = Encoding.ASCII.GetBytes("Words");
       await using (var stream = new MemoryStream(bytes))
       {
-        var byteArray = new byte[stream.Length];
-        var count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
+        byte[] byteArray = new byte[stream.Length];
+        int count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
         return count;
       }
     }
@@ -53,8 +53,8 @@ public class AwaitUsingReturnInIfStatementReproduction
     {
       byte[] bytes = Encoding.ASCII.GetBytes("Words");
       using var stream = new MemoryStream(bytes);
-      var byteArray = new byte[stream.Length];
-      var count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
+      byte[] byteArray = new byte[stream.Length];
+      int count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
       return count;
     }
 
@@ -68,7 +68,7 @@ public class AwaitUsingReturnInIfStatementReproduction
     {
       byte[] bytes = Encoding.ASCII.GetBytes("Words");
       await using var stream = new MemoryStream(bytes);
-      var byteArray = new byte[stream.Length];
+      byte[] byteArray = new byte[stream.Length];
       count = await stream.ReadAsync(byteArray.AsMemory(0, 3));
     }
 

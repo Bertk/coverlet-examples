@@ -45,7 +45,7 @@ public static class FolderService
   {
     return new()
     {
-      Path = args != null && args.TryGetValue("path", out var path) && path is string s
+      Path = args != null && args.TryGetValue("path", out object? path) && path is string s
          ? s
         : @"F:\rep1\rep2",
     };

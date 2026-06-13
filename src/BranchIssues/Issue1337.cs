@@ -22,11 +22,11 @@ public class DoerOfStuff
 
   private async Task ActualWork(Data data)
   {
-    var (one, two) = data;
+    (int one, string? two) = data;
     try
     {
 
-      var res = one++;
+      int res = one++;
       _log.LogInformation($"Res {res}");
     }
     catch (Exception exception)
