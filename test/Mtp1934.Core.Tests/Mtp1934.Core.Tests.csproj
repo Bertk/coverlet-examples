@@ -9,6 +9,7 @@
     <IsTestProject>true</IsTestProject>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+    <NoWarn>$(NoWarn);S1118</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
