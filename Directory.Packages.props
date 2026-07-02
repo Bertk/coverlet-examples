@@ -3,7 +3,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <XunitV3Version>3.2.2</XunitV3Version>
     <XunitRunnerVisualstudioVersion>3.1.5</XunitRunnerVisualstudioVersion>
-    <CoverletVersion>10.0.2-preview.5.gc962ca2869</CoverletVersion>
+    <CoverletVersion>10.0.2-preview.10.g8c135dac01</CoverletVersion>
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.27.0.140913" />
