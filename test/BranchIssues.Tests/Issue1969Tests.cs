@@ -11,5 +11,11 @@ namespace Issue1969.Tests
       Assert.True(IsOr.Operator(text));
       Assert.True(IsOr.PatternMatching(text));
     }
+    [TestCase("world")]
+    public void OrPartialTest(string text)
+    {
+      Assert.True(IsOrPartial.Operator(text));
+      Assert.True(IsOrPartial.PatternMatching(text));
+    }
   }
 }
