@@ -3,7 +3,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <XunitV3Version>3.2.2</XunitV3Version>
     <XunitRunnerVisualstudioVersion>3.1.5</XunitRunnerVisualstudioVersion>
-    <CoverletVersion>10.0.2-preview.13.g619882df3d</CoverletVersion>
+    <CoverletVersion>10.0.2-preview.15.g09fd57f9a9</CoverletVersion>
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.29.0.143774" />
@@ -29,7 +29,7 @@
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.9" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.9" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.10" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
     <!--<PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.2.3" />-->
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="MSTest" Version="4.2.3" />
