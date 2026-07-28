@@ -22,9 +22,9 @@
     <PackageVersion Include="Mediator.SourceGenerator" Version="3.0.2" />
     <PackageVersion Include="Mediator.Abstractions" Version="3.0.2" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
-    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.9" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.10" />
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.10" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.10" />
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.10" />
@@ -39,10 +39,10 @@
     <PackageVersion Include="NUnit.Analyzers" Version="4.14.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.3.2" />
-    <!--<PackageVersion Include="xunit.v3" Version="$(XunitV3Version)" />-->
+    <PackageVersion Include="xunit.v3" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.mtp-v2" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.runner.msbuild" Version="$(XunitV3Version)" />
     <PackageVersion Include="System.CommandLine" Version="2.0.10" />
-    <PackageVersion Include="System.Linq.AsyncEnumerable" Version="10.0.8" />
+    <PackageVersion Include="System.Linq.AsyncEnumerable" Version="10.0.10" />
   </ItemGroup>
 </Project>
