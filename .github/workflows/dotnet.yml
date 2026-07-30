@@ -75,7 +75,7 @@ jobs:
           global-json-file: './global.json'
 
       - name: Restore dotnet tools
-        run: dotnet tool restore --add-source https://api.nuget.org/v3/index.json
+        run: dotnet tool restore
 
       - name: Tests and coverage report
         run: ./run-test.ps1
