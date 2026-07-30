@@ -173,7 +173,13 @@ dotnet run -c Debug --no-build `
 
 Write-Step "Running .NET tool coverlet.console"
 
-$repoRoot = $PSScriptRoot
+$repoRoot = if ($env:GITHUB_WORKSPACE) {
+    $env:GITHUB_WORKSPACE
+}
+else {
+    $PSScriptRoot
+}
+
 $testOutput = Join-Path $repoRoot "artifacts/bin/GlobalTool.Tests/debug_net10.0"
 $testDll = Join-Path $testOutput "GlobalTool.Tests.dll"
 $coverageOutput = Join-Path $repoRoot "artifacts/results/coverlet-console-coverage.json"
