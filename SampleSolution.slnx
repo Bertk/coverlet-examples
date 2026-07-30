@@ -22,6 +22,7 @@
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/">
+    <File Path=".config/dotnet-tools.json" />
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
