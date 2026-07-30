@@ -6,13 +6,22 @@
       "version": "5.5.11",
       "commands": [
         "reportgenerator"
-      ]
+      ],
+      "rollForward": false
     },
     "nbgv": {
       "version": "3.10.91",
       "commands": [
         "nbgv"
-      ]
+      ],
+      "rollForward": false
+    },
+    "coverlet.console": {
+      "version": "10.0.2-preview.21.gb734a326e7",
+      "commands": [
+        "coverlet"
+      ],
+      "rollForward": false
     }
   }
 }

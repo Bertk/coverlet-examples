@@ -71,8 +71,8 @@ Write-Host "Build succeeded." -ForegroundColor Green
 #     --results-directory     : where .trx result files and coverage XML land
 # ---------------------------------------------------------------------------
 
- # Enable experimental Coverlet feature to cache auto-property backing fields for better performance and branch coverage accuracy
- $Env:COVERLET_EXPERIMENTAL_AUTOPROP_BACKING_FIELD_CACHE = '1'
+# Enable experimental Coverlet feature to cache auto-property backing fields for better performance and branch coverage accuracy
+$Env:COVERLET_EXPERIMENTAL_AUTOPROP_BACKING_FIELD_CACHE = '1'
 
 Write-Step "Running NUnit test projects"
 
@@ -170,6 +170,25 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MSTestProject1
+
+Write-Step "Running .NET tool coverlet.console"
+
+$repoRoot = if ($env:GITHUB_WORKSPACE) {
+    $env:GITHUB_WORKSPACE
+}
+else {
+    $PSScriptRoot
+}
+
+$testOutput = Join-Path $repoRoot "artifacts/bin/GlobalTool.Tests/debug_net10.0"
+$testDll = Join-Path $testOutput "GlobalTool.Tests.dll"
+$coverageOutput = Join-Path $repoRoot "artifacts/results/coverlet-console-coverage.json"
+
+dotnet tool run coverlet $testOutput `
+    --target "dotnet" `
+    --targetargs $testDll `
+    --exclude [GlobalTool.Tests]* `
+    --output $coverageOutput
 
 Write-Step "Running test with dotnet-reportgenerator-mtp extension"
 

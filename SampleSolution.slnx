@@ -12,6 +12,7 @@
   <Folder Name="/test/">
     <Project Path="test/BranchIssues.Tests/BranchIssues.Tests.csproj" />
     <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
+    <Project Path="test/GlobalTool.Tests/GlobalTool.Tests.csproj" />
     <Project Path="test/Issue1334.Tests/Issue1334.Tests.csproj" />
     <Project Path="test/Issue1417.Tests/Issue1417.Tests.csproj" Id="561d7148-88e1-47db-8031-776351e9698a" />
     <Project Path="test/MediatorApp.Tests/MediatorApp.Tests.csproj" />
@@ -21,6 +22,7 @@
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/">
+    <File Path=".config/dotnet-tools.json" />
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
