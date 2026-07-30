@@ -171,6 +171,13 @@ dotnet run -c Debug --no-build `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MSTestProject1
 
+Write-Step "Running .NET tool coverlet.console"
+
+dotnet tool run coverlet "C:\GitHub\coverlet-examples\artifacts\bin\GlobalTool.Tests\debug_net10.0" `
+    --target "dotnet" --targetargs "C:\GitHub\coverlet-examples\artifacts\bin\GlobalTool.Tests\debug_net10.0\GlobalTool.Tests.dll" `
+    --exclude [GlobalTool.Tests]* `
+    --output "C:\GitHub\coverlet-examples\artifacts\results\coverlet-console-coverage.json"
+
 Write-Step "Running test with dotnet-reportgenerator-mtp extension"
 
 dotnet run -c Debug --no-build `
