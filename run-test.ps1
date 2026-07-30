@@ -173,10 +173,16 @@ dotnet run -c Debug --no-build `
 
 Write-Step "Running .NET tool coverlet.console"
 
-dotnet tool run coverlet "$PSScriptRoot/artifacts/bin/GlobalTool.Tests/debug_net10.0" `
-    --target "dotnet" --targetargs "$PSScriptRoot/artifacts/bin/GlobalTool.Tests/debug_net10.0/GlobalTool.Tests.dll" `
+$repoRoot = $PSScriptRoot
+$testOutput = Join-Path $repoRoot "artifacts/bin/GlobalTool.Tests/debug_net10.0"
+$testDll = Join-Path $testOutput "GlobalTool.Tests.dll"
+$coverageOutput = Join-Path $repoRoot "artifacts/results/coverlet-console-coverage.json"
+
+dotnet tool run coverlet $testOutput `
+    --target "dotnet" `
+    --targetargs $testDll `
     --exclude [GlobalTool.Tests]* `
-    --output "$PSScriptRoot/artifacts/results/coverlet-console-coverage.json"
+    --output $coverageOutput
 
 Write-Step "Running test with dotnet-reportgenerator-mtp extension"
 
