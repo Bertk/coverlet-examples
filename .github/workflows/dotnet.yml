@@ -38,6 +38,12 @@ jobs:
         with:
           global-json-file: './global.json'
 
+      - name: List available SDKs
+        run: dotnet --list-sdks
+
+      - name: List available runtimes
+        run: dotnet --list-runtimes
+
       - name: Restore dependencies
         run: dotnet restore
 
@@ -107,4 +113,8 @@ jobs:
             ./artifacts/**/*.trx
             ./artifacts/**/*.opencover.*.xml
             ./artifacts/**/*.cobertura.*.xml
-            ./artifacts/**/*.coverage.*.json
+            ./artifacts/**/*coverage.*.json
+            ./artifacts/**/*.coverage.*.xml
+            ./artifacts/**/*.trace.log
+
+

@@ -52,6 +52,9 @@ Write-Step "Cleaning previous artifacts"
 Remove-Item -Path "./artifacts/*" -Force -Recurse -ErrorAction SilentlyContinue
 Write-Host "Artifacts folder cleaned." -ForegroundColor Green
 
+#dotnet --list-sdks
+#dotnet --list-runtimes
+
 # ---------------------------------------------------------------------------
 # Step 2 – Build the entire solution once in Debug mode.
 #           --no-build is used below so tests reuse these binaries.
@@ -182,26 +185,40 @@ else {
 
 $testOutput = Join-Path $repoRoot "artifacts/bin/GlobalTool.Tests/debug_net10.0"
 $testDll = Join-Path $testOutput "GlobalTool.Tests.dll"
-$coverageOutput = Join-Path $repoRoot "artifacts/results/coverlet-console-coverage.json"
+$coverageOutput = Join-Path $repoRoot "artifacts/results/coverage.coverlet.console.json"
+
+#Get-ChildItem $testOutput -File |
+#    Select-Object Name, Length
+
+#Get-ChildItem (Join-Path $repoRoot "artifacts\bin") -Recurse -Filter *.pdb |
+#    Select-Object FullName, Length
 
 dotnet tool run coverlet $testOutput `
     --target "dotnet" `
     --targetargs $testDll `
     --exclude [GlobalTool.Tests]* `
-    --output $coverageOutput
+    --exclude [Microsoft.Testing.*]* `
+    --exclude [xunit.v3.*]* `
+    --exclude-assemblies-without-sources None `
+    --output $coverageOutput `
+    --verbosity trace `
+    --diag "artifacts/results/coverlet.console.trace.log"
 
-Write-Step "Running test with dotnet-reportgenerator-mtp extension"
+# check available pdb files
+# Get-ChildItem "./artifacts" -recurse | Where-Object {$_.name -match "[a-zA-Z].pdb"} | foreach-object {write-host $_.FullName}
 
-dotnet run -c Debug --no-build `
-    --project test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj `
-    --report-xunit-trx `
-    --framework net10.0 `
-    --results-directory ./artifacts/results `
-    --verbosity normal `
-    --coverlet `
-    --coverlet-output-format cobertura `
-    --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix Mtp1934.Core
+# Write-Step "Running test with dotnet-reportgenerator-mtp extension"
+
+#dotnet run -c Debug --no-build `
+#    --project test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj `
+#    --report-xunit-trx `
+#    --framework net10.0 `
+#    --results-directory ./artifacts/results `
+#    --verbosity normal `
+#    --coverlet `
+#    --coverlet-output-format cobertura `
+#    --diagnostic --diagnostic-verbosity trace `
+#    --diagnostic-file-prefix Mtp1934.Core
 #   --reportgenerator
 
 # ---------------------------------------------------------------------------
