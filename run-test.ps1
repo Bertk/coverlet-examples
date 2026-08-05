@@ -204,6 +204,22 @@ dotnet tool run coverlet $testOutput `
     --verbosity trace `
     --diag "artifacts/results/coverlet.console.trace.log"
 
+if ($IsWindows) {
+  Write-Step "Running .NET tool coverlet.MTP for .NET framework SUT net481"
+
+  dotnet run -c Debug --no-build `
+      --project test/Issue2009.Tests/Issue2009.Tests.csproj `
+      --report-trx --report-trx-filename Issue2009.Tests.trx `
+      --framework net481 `
+      --results-directory ./artifacts/results `
+      --verbosity normal `
+      --coverlet `
+      --coverlet-include [ClassLibrary]* `
+      --coverlet-output-format cobertura `
+      --diagnostic --diagnostic-verbosity trace `
+      --diagnostic-file-prefix Issue2009
+}
+
 # check available pdb files
 # Get-ChildItem "./artifacts" -recurse | Where-Object {$_.name -match "[a-zA-Z].pdb"} | foreach-object {write-host $_.FullName}
 

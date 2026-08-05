@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net481</TargetFramework>
+        <RootNamespace>CoverletIssueRepro</RootNamespace>
+        <IsTestProject>true</IsTestProject>
+        <EnableNUnitRunner>true</EnableNUnitRunner>
+        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="coverlet.MTP" />
+        <PackageReference Include="NUnit" />
+        <PackageReference Include="NUnit3TestAdapter" />
+        <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ClassLibrary\ClassLibrary.csproj" />
+  </ItemGroup>
+</Project>

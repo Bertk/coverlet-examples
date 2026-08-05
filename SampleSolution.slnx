@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/BranchIssues/BranchIssues.csproj" />
     <Project Path="src/ClassIssue1334/ClassIssue1334.csproj" />
+    <Project Path="src/ClassLibrary/ClassLibrary.csproj" />
     <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
     <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
     <Project Path="src/Issue1417/Issue1417.csproj" Id="f01f1b4c-a459-42c1-b793-5836c683e6f4" />
@@ -15,6 +16,7 @@
     <Project Path="test/GlobalTool.Tests/GlobalTool.Tests.csproj" />
     <Project Path="test/Issue1334.Tests/Issue1334.Tests.csproj" />
     <Project Path="test/Issue1417.Tests/Issue1417.Tests.csproj" Id="561d7148-88e1-47db-8031-776351e9698a" />
+    <Project Path="test/Issue2009.Tests/Issue2009.Tests.csproj" />
     <Project Path="test/MediatorApp.Tests/MediatorApp.Tests.csproj" />
     <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
     <Project Path="test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj" />
