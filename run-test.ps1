@@ -79,16 +79,6 @@ $Env:COVERLET_EXPERIMENTAL_AUTOPROP_BACKING_FIELD_CACHE = '1'
 
 Write-Host "GITHUB_ACTIONS = $Env:GITHUB_ACTIONS"
 
-Write-Step "Check build environment $Env:GITHUB_WORKSPACE"
-
-if ($env:GITHUB_WORKSPACE) {
-    Write-Host "GITHUB_WORKSPACE is set, use USE_ATTRIBUTE_GH = '--report-gh'"
-    $USE_ATTRIBUTE_GH = "--report-gh"
-} else
-{
-    Write-Host "GITHUB_WORKSPACE is not set, do not use USE_ATTRIBUTE_GH"
-}
-
 Write-Step "Running NUnit test projects"
 
 dotnet run -c Debug --no-build `
@@ -100,7 +90,8 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix NUnitProject1
+    --diagnostic-file-prefix NUnitProject1 `
+    --report-gh
 
 dotnet run -c Debug --no-build `
     --project test/BranchIssues.Tests/BranchIssues.Tests.csproj `
@@ -112,7 +103,8 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --coverlet-exclude "[Moq]*" `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix BranchIssues
+    --diagnostic-file-prefix BranchIssues `
+    --report-gh
 
 Write-Step "Running xUnit test projects"
 
@@ -126,7 +118,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix ConsoleApp `
-    $USE_ATTRIBUTE_GH
+    --report-gh
 
 dotnet run -c Debug --no-build `
     --project test/XUnitProject1.Tests/XUnitProject1.Tests.csproj `
@@ -138,7 +130,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix XUnitProject1 `
-    $USE_ATTRIBUTE_GH
+    --report-gh
 
 dotnet run -c Debug --no-build `
     --project test/Issue1334.Tests/Issue1334.Tests.csproj `
@@ -150,7 +142,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue1334 `
-    $USE_ATTRIBUTE_GH
+    --report-gh
 
 dotnet run -c Debug --no-build `
     --project test/MediatorApp.Tests/MediatorApp.Tests.csproj `
@@ -163,7 +155,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MediatorApp `
-    $USE_ATTRIBUTE_GH
+    --report-gh
 
 dotnet run -c Debug --no-build `
     --project test/Issue1417.Tests/Issue1417.Tests.csproj `
@@ -176,7 +168,24 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue1417 `
-    $USE_ATTRIBUTE_GH
+    --report-gh
+
+if ($IsWindows) {
+  Write-Step "Running test with coverlet.MTP for .NET framework SUT net481"
+
+  dotnet run -c Debug --no-build `
+      --project test/Issue2009.Tests/Issue2009.Tests.csproj `
+      --report-trx --report-trx-filename Issue2009.Tests.trx `
+      --framework net481 `
+      --results-directory ./artifacts/results `
+      --verbosity normal `
+      --coverlet `
+      --coverlet-include [ClassLibrary]* `
+      --coverlet-output-format cobertura `
+      --diagnostic --diagnostic-verbosity trace `
+      --diagnostic-file-prefix Issue2009 `
+      --report-gh
+}
 
 Write-Step "Running MSTest test projects"
 
@@ -190,7 +199,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MSTestProject1 `
-    $USE_ATTRIBUTE_GH
+    --report-gh
 
 Write-Step "Running .NET tool coverlet.console"
 
@@ -221,22 +230,6 @@ dotnet tool run coverlet $testOutput `
     --output $coverageOutput `
     --verbosity trace `
     --diag "artifacts/results/coverlet.console.trace.log"
-
-if ($IsWindows) {
-  Write-Step "Running .NET tool coverlet.MTP for .NET framework SUT net481"
-
-  dotnet run -c Debug --no-build `
-      --project test/Issue2009.Tests/Issue2009.Tests.csproj `
-      --report-trx --report-trx-filename Issue2009.Tests.trx `
-      --framework net481 `
-      --results-directory ./artifacts/results `
-      --verbosity normal `
-      --coverlet `
-      --coverlet-include [ClassLibrary]* `
-      --coverlet-output-format cobertura `
-      --diagnostic --diagnostic-verbosity trace `
-      --diagnostic-file-prefix Issue2009
-}
 
 # check available pdb files
 # Get-ChildItem "./artifacts" -recurse | Where-Object {$_.name -match "[a-zA-Z].pdb"} | foreach-object {write-host $_.FullName}
