@@ -85,7 +85,6 @@ if ($env:GITHUB_WORKSPACE) {
 } else
 {
     Write-Host "GITHUB_WORKSPACE is not set, do not use USE_ATTRIBUTE_GH"
-    $USE_ATTRIBUTE_GH = ""
 }
 
 Write-Step "Running NUnit test projects"
@@ -99,7 +98,7 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix NUnitProject1 $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix NUnitProject1
 
 dotnet run -c Debug --no-build `
     --project test/BranchIssues.Tests/BranchIssues.Tests.csproj `
@@ -111,7 +110,7 @@ dotnet run -c Debug --no-build `
     --coverlet-output-format cobertura `
     --coverlet-exclude "[Moq]*" `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix BranchIssues $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix BranchIssues
 
 Write-Step "Running xUnit test projects"
 
@@ -124,7 +123,8 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix ConsoleApp $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix ConsoleApp `
+    $USE_ATTRIBUTE_GH
 
 dotnet run -c Debug --no-build `
     --project test/XUnitProject1.Tests/XUnitProject1.Tests.csproj `
@@ -135,7 +135,8 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix XUnitProject1 $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix XUnitProject1 `
+    $USE_ATTRIBUTE_GH
 
 dotnet run -c Debug --no-build `
     --project test/Issue1334.Tests/Issue1334.Tests.csproj `
@@ -146,7 +147,8 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix Issue1334 $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix Issue1334 `
+    $USE_ATTRIBUTE_GH
 
 dotnet run -c Debug --no-build `
     --project test/MediatorApp.Tests/MediatorApp.Tests.csproj `
@@ -158,7 +160,8 @@ dotnet run -c Debug --no-build `
     --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix MediatorApp $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix MediatorApp `
+    $USE_ATTRIBUTE_GH
 
 dotnet run -c Debug --no-build `
     --project test/Issue1417.Tests/Issue1417.Tests.csproj `
@@ -170,7 +173,8 @@ dotnet run -c Debug --no-build `
     --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix Issue1417 $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix Issue1417 `
+    $USE_ATTRIBUTE_GH
 
 Write-Step "Running MSTest test projects"
 
@@ -183,7 +187,8 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix MSTestProject1 $USE_ATTRIBUTE_GH
+    --diagnostic-file-prefix MSTestProject1 `
+    $USE_ATTRIBUTE_GH
 
 Write-Step "Running .NET tool coverlet.console"
 
