@@ -24,6 +24,7 @@
       <PackageReference Include="FluentAssertions" />
       <PackageReference Include="coverlet.MTP" />
       <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
+      <PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" />
     </ItemGroup>
 
     <ItemGroup>
