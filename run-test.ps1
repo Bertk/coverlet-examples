@@ -77,6 +77,8 @@ Write-Host "Build succeeded." -ForegroundColor Green
 # Enable experimental Coverlet feature to cache auto-property backing fields for better performance and branch coverage accuracy
 $Env:COVERLET_EXPERIMENTAL_AUTOPROP_BACKING_FIELD_CACHE = '1'
 
+Write-Host "GITHUB_ACTIONS = $Env:GITHUB_ACTIONS"
+
 Write-Step "Check build environment $Env:GITHUB_WORKSPACE"
 
 if ($env:GITHUB_WORKSPACE) {
