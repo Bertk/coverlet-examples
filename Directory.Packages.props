@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <XunitV3Version>3.2.2</XunitV3Version>
-    <XunitRunnerVisualstudioVersion>3.1.5</XunitRunnerVisualstudioVersion>
+    <XunitV3Version>4.0.0-pre.154</XunitV3Version>
+    <XunitRunnerVisualstudioVersion>4.0.0-pre.5</XunitRunnerVisualstudioVersion>
     <CoverletVersion>10.0.2-preview.33.g61d8e1b154</CoverletVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -30,7 +30,7 @@
     <PackageVersion Include="Microsoft.Extensions.Logging" Version="10.0.10" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.11" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
-    <!--<PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.2.3" />-->
+    <!--<PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.3.3" />-->
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="MSTest" Version="4.3.3" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
@@ -39,9 +39,12 @@
     <PackageVersion Include="NUnit.Analyzers" Version="4.14.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
     <PackageVersion Include="Microsoft.Testing.Extensions.TrxReport" Version="2.3.3" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.HtmlReport" Version="2.3.3" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.GitHubActionsReport" Version="1.0.0-alpha.26377.5" />
     <PackageVersion Include="xunit.v3" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.mtp-v2" Version="$(XunitV3Version)" />
     <PackageVersion Include="xunit.v3.runner.msbuild" Version="$(XunitV3Version)" />
+    <PackageVersion Include="xunit.v3.runner.visualstudio" Version="$(XunitRunnerVisualstudioVersion)" />
     <PackageVersion Include="System.CommandLine" Version="2.0.11" />
     <PackageVersion Include="System.Linq.AsyncEnumerable" Version="10.0.10" />
   </ItemGroup>

@@ -18,11 +18,13 @@
       <PackageReference Include="Microsoft.NET.Test.Sdk" />
       <PackageReference Include="Moq" />
       <PackageReference Include="NUnit" />
+      <PackageReference Include="NUnit.Analyzers" />
       <PackageReference Include="NUnit3TestAdapter" />
       <PackageReference Include="NSubstitute" />
       <PackageReference Include="FluentAssertions" />
       <PackageReference Include="coverlet.MTP" />
       <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
+      <PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" />
     </ItemGroup>
 
     <ItemGroup>
