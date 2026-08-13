@@ -213,6 +213,7 @@ else {
 $testOutput = Join-Path $repoRoot "artifacts/bin/GlobalTool.Tests/debug_net10.0"
 $testDll = Join-Path $testOutput "GlobalTool.Tests.dll"
 $coverageOutput = Join-Path $repoRoot "artifacts/results/coverage.coverlet.console.json"
+$time = Get-Date -Format 'yyyyMMdd-HHmmss'
 
 #Get-ChildItem $testOutput -File |
 #    Select-Object Name, Length
@@ -222,7 +223,7 @@ $coverageOutput = Join-Path $repoRoot "artifacts/results/coverage.coverlet.conso
 
 dotnet tool run coverlet $testOutput `
     --target "dotnet" `
-    --targetargs $testDll `
+    --targetargs "$testDll --report-xunit-trx --report-gh --report-xunit-trx-filename GlobalTool.Tests_$($time).trx" `
     --exclude [GlobalTool.Tests]* `
     --exclude [Microsoft.Testing.*]* `
     --exclude [xunit.v3.*]* `

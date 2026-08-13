@@ -9,6 +9,7 @@
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <NoWarn>$(NoWarn);S125;S2699;S4144;S1118;CA1822;CA1852</NoWarn>
+    <!--<TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) - -report-xunit-trx - -diagnostic - -report-gh - -config-file GlobalTool.Tests.testconfig.json</TestingPlatformCommandLineArguments>-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit.v3" />
-    <!--<PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />-->
-    <!--<PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" />-->
+    <PackageReference Include="xunit.v3.mtp-v2" />
+    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" />
+    <PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" />
   </ItemGroup>
 
   <ItemGroup>
