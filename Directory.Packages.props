@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
-    <XunitV3Version>4.0.0-pre.154</XunitV3Version>
+    <XunitV3Version>4.0.0</XunitV3Version>
     <XunitRunnerVisualstudioVersion>4.0.0-pre.5</XunitRunnerVisualstudioVersion>
     <CoverletVersion>10.0.2-preview.33.g61d8e1b154</CoverletVersion>
   </PropertyGroup>
