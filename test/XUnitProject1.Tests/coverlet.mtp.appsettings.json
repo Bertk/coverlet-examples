@@ -1,9 +1,0 @@
-{
-  "Coverlet": {
-    "Exclude": "[*.Tests]*,[xunit*]*",
-    "ExcludeByAttribute": "GeneratedCode,ExcludeFromCodeCoverage",
-    "Format": "cobertura,json,lcov,opencover",
-    "SkipAutoProps": true,
-    "ExcludeAssembliesWithoutSources": "MissingAll"
-  }
-}
