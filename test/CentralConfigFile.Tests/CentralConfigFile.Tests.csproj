@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
+    <DebugType>portable</DebugType>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
+    <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --config-file $(RepoRoot)/test/XUnitProject1.Tests/testconfig.json</TestingPlatformCommandLineArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.MTP" />
+    <PackageReference Include="xunit.v3.mtp-v2" />
+    <PackageReference Include="Microsoft.Testing.Extensions.GitHubActionsReport" />
+   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
+  </ItemGroup>
+
+  
+</Project>

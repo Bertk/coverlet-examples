@@ -12,6 +12,7 @@
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/BranchIssues.Tests/BranchIssues.Tests.csproj" />
+    <Project Path="test/CentralConfigFile.Tests/CentralConfigFile.Tests.csproj" />
     <Project Path="test/ConsoleApp.Tests/ConsoleApp.Tests.csproj" />
     <Project Path="test/GlobalTool.Tests/GlobalTool.Tests.csproj" />
     <Project Path="test/Issue1334.Tests/Issue1334.Tests.csproj" />

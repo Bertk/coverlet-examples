@@ -133,6 +133,18 @@ dotnet run -c Debug --no-build `
     --report-gh
 
 dotnet run -c Debug --no-build `
+    --project test/CentralConfigFile.Tests/CentralConfigFile.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix CentralConfigFile `
+    --report-gh
+
+dotnet run -c Debug --no-build `
     --project test/Issue1334.Tests/Issue1334.Tests.csproj `
     --report-xunit-trx `
     --framework net10.0 `
