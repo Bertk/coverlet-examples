@@ -2,7 +2,7 @@ using Xunit;
 
 namespace XUnitProject1.Tests
 {
-  public class CentralConfigFile
+  public class UnitTest1
   {
     [Fact]
     public void Test1()
