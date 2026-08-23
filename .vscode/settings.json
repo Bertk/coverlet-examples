@@ -1,0 +1,13 @@
+{
+    "codeQL.githubDatabase.update": "never",
+    "cSpell.words": [
+        "dotnet",
+        "GITHUB",
+        "NETSDK",
+        "opencover",
+        "reportgenerator",
+        "testconfig",
+        "TESTINGPLATFORM",
+        "xunit"
+    ]
+}
