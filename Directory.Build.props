@@ -59,4 +59,9 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+  <!-- This is only activated for the CentralConfigFile integration tests (remove whitespace '- -config-file')-->
+  <!-- <PropertyGroup>
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) - -config-file $(MSBuildThisFileDirectory)/test/testconfig.json</TestingPlatformCommandLineArguments>
+  </PropertyGroup> -->
+
 </Project>

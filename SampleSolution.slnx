@@ -36,9 +36,7 @@
     <File Path="nuget.config" />
     <File Path="README.md" />
     <File Path="run-test.ps1" />
+    <File Path="test/testconfig.json" />
     <File Path="version.json" />
-  </Folder>
-  <Folder Name="/_Solution Folder/Github Action/">
-    <File Path=".github/workflows/dotnet.yml" />
   </Folder>
 </Solution>

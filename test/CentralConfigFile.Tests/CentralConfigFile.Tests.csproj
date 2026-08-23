@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
@@ -8,7 +8,11 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --config-file $(RepoRoot)/test/XUnitProject1.Tests/testconfig.json</TestingPlatformCommandLineArguments>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TestingPlatformCommandLineArguments)' == ''">
+    <!-- Do not activate it for CLI option integration tests, because it will falsify tests -->
+    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --config-file $(RepoRoot)/test/testconfig.json</TestingPlatformCommandLineArguments>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,5 +25,4 @@
     <ProjectReference Include="..\..\src\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
-  
 </Project>
