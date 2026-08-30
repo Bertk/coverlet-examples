@@ -182,6 +182,19 @@ dotnet run -c Debug --no-build `
     --diagnostic-file-prefix Issue1417 `
     --report-gh
 
+dotnet run -c Debug --no-build `
+    --project test/ThresholdConfigFile.Tests/ThresholdConfigFile.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-exclude-assemblies-without-sources MissingAll `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix ThresholdConfigFile `
+    --report-gh
+
 if ($IsWindows) {
   Write-Step "Running test with coverlet.MTP for .NET framework SUT net481"
 
