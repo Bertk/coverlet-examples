@@ -22,6 +22,7 @@
     <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
     <Project Path="test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj" />
     <Project Path="test/NUnitProject1.Tests/NUnitProject1.Tests.csproj" />
+    <Project Path="test/ThresholdConfigFile.Tests/ThresholdConfigFile.Tests.csproj" Id="4a58d4d1-2cba-4602-83b3-c48a14208d4f" />
     <Project Path="test/XUnitProject1.Tests/XUnitProject1.Tests.csproj" />
   </Folder>
   <Folder Name="/_Solution Folder/">
