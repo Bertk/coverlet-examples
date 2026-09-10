@@ -12,7 +12,7 @@ namespace ThresholdConfigFile.Tests
       ServiceCollection services = new();
       _ = services.AddApplication();
 
-      ServiceProvider serviceProvider = services.BuildServiceProvider();
+      using ServiceProvider serviceProvider = services.BuildServiceProvider();
       IMediator mediator = serviceProvider.GetRequiredService<Mediator.IMediator>();
 
       string result = await mediator.Send(new PingQuery("pong"), TestContext.Current.CancellationToken);
