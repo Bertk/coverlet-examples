@@ -15,7 +15,7 @@
     <PackageVersion Include="coverlet.MTP" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.msbuild" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.collector" Version="$(CoverletVersion)" />
-    <PackageVersion Include="FluentAssertions" Version="8.10.0" />
+    <PackageVersion Include="FluentAssertions" Version="8.11.0" />
     <PackageVersion Include="Google.Protobuf" Version="3.36.1" />
     <PackageVersion Include="Grpc.AspNetCore" Version="2.83.0" />
     <PackageVersion Include="Grpc.Net.Client" Version="2.83.0" />
