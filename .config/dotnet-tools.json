@@ -17,7 +17,7 @@
       "rollForward": false
     },
     "coverlet.console": {
-      "version": "10.0.2-preview.37.g1c2fc5d0a1",
+      "version": "10.0.2-preview.38.gda5c649126",
       "commands": [
         "coverlet"
       ],
