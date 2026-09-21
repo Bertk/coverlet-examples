@@ -10,11 +10,6 @@
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TestingPlatformCommandLineArguments)' == ''">
-    <!-- Do not activate it for CLI option integration tests, because it will falsify tests -->
-    <TestingPlatformCommandLineArguments>$(TestingPlatformCommandLineArguments) --config-file $(RepoRoot)/test/testconfig.json</TestingPlatformCommandLineArguments>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="coverlet.MTP" />
     <PackageReference Include="xunit.v3.mtp-v2" />
