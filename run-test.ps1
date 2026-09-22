@@ -217,11 +217,11 @@ dotnet run -c Debug --no-build `
 # Check that exactly two coverage report files were generated
 $coverageFiles = Get-ChildItem -Path "./artifacts/results" -File -Filter "CentralConfig.coverage*"
 
-if ($coverageFiles.Count -ne 3) {
-    Write-Error "Expected 3 coverage files with prefix 'CentralConfig.coverage' in './artifacts/results', but found $($coverageFiles.Count)."
+if ($coverageFiles.Count -ne 4) {
+    Write-Error "Expected 4 coverage files with prefix 'CentralConfig.coverage' in './artifacts/results', but found $($coverageFiles.Count)."
 }
 
-Write-Verbose "Verified $($coverageFiles.Count) CentralConfig coverage files" -Verbose
+Write-Verbose "Verified $($coverageFiles.Count) CentralConfig number of coverage files" -Verbose
 
 
 
