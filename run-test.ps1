@@ -133,18 +133,6 @@ dotnet run -c Debug --no-build `
     --report-gh
 
 dotnet run -c Debug --no-build `
-    --project test/CentralConfigFile.Tests/CentralConfigFile.Tests.csproj `
-    --report-xunit-trx `
-    --framework net10.0 `
-    --results-directory ./artifacts/results `
-    --verbosity normal `
-    --coverlet `
-    --coverlet-output-format cobertura `
-    --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix CentralConfigFile `
-    --report-gh
-
-dotnet run -c Debug --no-build `
     --project test/Issue1334.Tests/Issue1334.Tests.csproj `
     --report-xunit-trx `
     --framework net10.0 `
@@ -211,6 +199,31 @@ if ($IsWindows) {
       --diagnostic-file-prefix Issue2009 `
       --report-gh
 }
+
+Write-Step "Running CentralConfigFile test projects"
+
+dotnet run -c Debug --no-build `
+    --project test/CentralConfigFile.Tests/CentralConfigFile.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-file-prefix CentralConfig `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix CentralConfigFile `
+    --report-gh
+
+# Check that exactly two coverage report files were generated
+$coverageFiles = Get-ChildItem -Path "./artifacts/results" -File -Filter "CentralConfig.coverage*"
+
+if ($coverageFiles.Count -ne 4) {
+    Write-Error "Expected 4 coverage files with prefix 'CentralConfig.coverage' in './artifacts/results', but found $($coverageFiles.Count)."
+}
+
+Write-Verbose "Verified $($coverageFiles.Count) CentralConfig number of coverage files" -Verbose
+
+
 
 Write-Step "Running MSTest test projects"
 
