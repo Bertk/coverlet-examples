@@ -298,7 +298,7 @@ Write-Step "Generating coverage report"
 dotnet tool run reportgenerator `
     "-reports:artifacts/results/coverage.cobertura*.xml" `
     "-targetdir:artifacts/CoverageReport" `
-    "-reporttypes:HtmlInline_AzurePipelines;Cobertura;Markdown" `
+    "-reporttypes:MarkdownSummaryGithub;HtmlInline_AzurePipelines;Cobertura;Markdown" `
     -verbosity:Verbose
 
 Write-Host ""
