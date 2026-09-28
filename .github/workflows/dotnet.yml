@@ -74,6 +74,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup dotnet 10.0
         uses: actions/setup-dotnet@v6
