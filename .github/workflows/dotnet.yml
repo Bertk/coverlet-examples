@@ -106,7 +106,7 @@ jobs:
           PR_NUMBER: ${{ github.event.number }}
     
       - name: Publish coverage in build summary # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
-        run: cat ./artifacts/CoverageReport/MarkdownSummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
+        run: cat ./artifacts/CoverageReport/SummaryGithub.md >> $GITHUB_STEP_SUMMARY # Adjust path and filename if necessary
         shell: bash
 
       - name: Upload coverage report artifact
