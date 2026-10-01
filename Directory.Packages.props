@@ -8,7 +8,7 @@
     <MicrosoftTestingPlatformVersion>2.4.1</MicrosoftTestingPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.34.0.3385" />
+    <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <GlobalPackageReference Include="Nerdbank.GitVersioning" Version="3.10.94" />
   </ItemGroup>
   <ItemGroup>
