@@ -200,6 +200,18 @@ if ($IsWindows) {
       --report-gh
 }
 
+dotnet run -c Debug --no-build `
+    --project test/Issue2045.Tests/Issue2045.Tests.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix Issue2045 `
+    --report-gh
+
 Write-Step "Running CentralConfigFile test projects"
 
 dotnet run -c Debug --no-build `
