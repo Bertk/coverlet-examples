@@ -23,6 +23,7 @@ namespace ClassIssue2045
       [DoesNotReturn, StackTraceHidden]
       static void Throw(uint capacity)
       {
+        int check = 42;
         throw new ArgumentException(
         $"""
         Capacity must be a power of 2 in [16, 2^30].

@@ -89,6 +89,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix NUnitProject1 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix NUnitProject1 `
     --report-gh
@@ -101,6 +102,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix BranchIssues `
     --coverlet-exclude "[Moq]*" `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix BranchIssues `
@@ -116,6 +118,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix ConsoleApp `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix ConsoleApp `
     --report-gh
@@ -128,6 +131,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix XUnitProject1 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix XUnitProject1 `
     --report-gh
@@ -140,6 +144,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix Issue1334 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue1334 `
     --report-gh
@@ -153,6 +158,7 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix MediatorApp `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MediatorApp `
     --report-gh
@@ -166,6 +172,7 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix Issue1417 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue1417 `
     --report-gh
@@ -179,6 +186,7 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-exclude-assemblies-without-sources MissingAll `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix ThresholdConfig `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix ThresholdConfigFile `
     --report-gh
@@ -195,6 +203,7 @@ if ($IsWindows) {
       --coverlet `
       --coverlet-include [ClassLibrary]* `
       --coverlet-output-format cobertura `
+      --coverlet-file-prefix Issue2009 `
       --diagnostic --diagnostic-verbosity trace `
       --diagnostic-file-prefix Issue2009 `
       --report-gh
@@ -208,6 +217,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix Issue2045 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue2045 `
     --report-gh
@@ -247,6 +257,7 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-file-prefix MSTestProject1 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix MSTestProject1 `
     --report-gh
@@ -308,7 +319,7 @@ dotnet tool run coverlet $testOutput `
 # ---------------------------------------------------------------------------
 Write-Step "Generating coverage report"
 dotnet tool run reportgenerator `
-    "-reports:artifacts/results/coverage.cobertura*.xml" `
+    "-reports:artifacts/results/*coverage.cobertura*.xml" `
     "-targetdir:artifacts/CoverageReport" `
     "-reporttypes:MarkdownSummaryGithub;HtmlInline_AzurePipelines;Cobertura;Markdown" `
     -verbosity:Verbose
