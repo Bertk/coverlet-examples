@@ -211,6 +211,7 @@ if ($IsWindows) {
 
 dotnet run -c Debug --no-build `
     --project test/Issue2045.Tests/Issue2045.Tests.csproj `
+    --coverlet-does-not-return-attribute DoesNotReturn `
     --report-xunit-trx `
     --framework net10.0 `
     --results-directory ./artifacts/results `
