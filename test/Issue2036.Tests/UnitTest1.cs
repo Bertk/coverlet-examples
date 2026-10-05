@@ -14,6 +14,12 @@ namespace Issue2036.Tests
     }
 
     [Fact]
+    public void NullControllerTypeReturnsNull()
+    {
+      Assert.Null(CoverletRepro.ExtractResourceClrTypeFromController(null!));
+    }
+
+    [Fact]
     public void IdentifiableGenericArgumentIsReturned()
     {
       Type resourceType = GetNestedType("Resource");
