@@ -210,6 +210,20 @@ if ($IsWindows) {
 }
 
 dotnet run -c Debug --no-build `
+    --project test/Issue2036.Tests/Issue2036.Tests.csproj `
+    --coverlet-does-not-return-attribute DoesNotReturn `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --coverlet-file-prefix Issue2036 `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix Issue2036 `
+    --report-gh
+
+dotnet run -c Debug --no-build `
     --project test/Issue2045.Tests/Issue2045.Tests.csproj `
     --coverlet-does-not-return-attribute DoesNotReturn `
     --report-xunit-trx `
