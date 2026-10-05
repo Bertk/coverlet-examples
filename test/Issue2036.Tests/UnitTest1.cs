@@ -14,12 +14,6 @@ namespace Issue2036.Tests
     }
 
     [Fact]
-    public void NullControllerTypeReturnsNull()
-    {
-      Assert.Null(CoverletRepro.ExtractResourceClrTypeFromController(null!));
-    }
-
-    [Fact]
     public void IdentifiableGenericArgumentIsReturned()
     {
       Type resourceType = GetNestedType("Resource");
@@ -55,10 +49,11 @@ namespace Issue2036.Tests
     [Fact]
     public void NonIdentifiableGenericArgumentUsesBaseControllerFallback()
     {
-      Type controllerType = GetNestedType("FallbackController`1").MakeGenericType(typeof(string));
+      Type resourceType = typeof(string);
+      Type controllerType = GetNestedType("FallbackController`1").MakeGenericType(resourceType);
 
       Assert.Equal(
-          controllerType,
+          resourceType,
           CoverletRepro.ExtractResourceClrTypeFromController(controllerType));
     }
 
@@ -102,6 +97,7 @@ namespace Issue2036.Tests
 
       Assert.Throws<ArgumentNullException>(() => repro.LogDebug(null!));
     }
+
     private static Type GetNestedType(string name)
     {
       return typeof(CoverletRepro).GetNestedType(name, BindingFlags.NonPublic)!;

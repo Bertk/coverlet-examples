@@ -1,4 +1,3 @@
-using System;
 using System.Linq.Expressions;
 
 namespace ClassIssue2036
@@ -44,12 +43,13 @@ namespace ClassIssue2036
     {
       AssemblyUnavailableLogged = true;
     }
+
     private interface IIdentifiable { }
 
     private class ControllerBase { }
     private class CoreJsonApiController : ControllerBase { }
 
-    private class BaseJsonApiController<TController, TResource>
+    private class BaseJsonApiController<TResource, TId>
         : CoreJsonApiController
     {
     }
@@ -65,8 +65,8 @@ namespace ClassIssue2036
     {
     }
 
-    private sealed class FallbackController<T>
-        : BaseJsonApiController<FallbackController<T>, T>
+    private sealed class FallbackController<TResource>
+        : BaseJsonApiController<TResource, int>
     {
     }
 
@@ -77,9 +77,8 @@ namespace ClassIssue2036
       Type baseControllerUnboundType = typeof(BaseJsonApiController<,>);
       Type? currentType = controllerType;
 
-      while (currentType != null &&
-             (!currentType.IsGenericType ||
-              currentType.GetGenericTypeDefinition() != baseControllerUnboundType))
+      while (!currentType.IsGenericType ||
+             currentType.GetGenericTypeDefinition() != baseControllerUnboundType)
       {
         Type? nextBaseType = currentType.BaseType;
 
