@@ -66,6 +66,13 @@ namespace Issue2036.Tests
     }
 
     [Fact]
+    public void NonGenericCoreControllerReturnsNull()
+    {
+      Type controllerType = GetNestedType("CoreJsonApiController");
+      Assert.Null(CoverletRepro.ExtractResourceClrTypeFromController(controllerType));
+    }
+
+    [Fact]
     public void FindIdentifiableArgumentReturnsNullForNonGenericType()
     {
       MethodInfo method = typeof(CoverletRepro).GetMethod(
