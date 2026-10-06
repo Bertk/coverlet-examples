@@ -58,6 +58,26 @@ namespace Issue2036.Tests
     }
 
     [Fact]
+    public void NonIdentifiableGenericArgumentOnDirectControllerReturnsNull()
+    {
+      Type controllerType = GetNestedType("DirectController`1").MakeGenericType(typeof(string));
+
+      Assert.Null(CoverletRepro.ExtractResourceClrTypeFromController(controllerType));
+    }
+
+    [Fact]
+    public void FindIdentifiableArgumentReturnsNullForNonGenericType()
+    {
+      MethodInfo method = typeof(CoverletRepro).GetMethod(
+          "FindIdentifiableArgument",
+          BindingFlags.NonPublic | BindingFlags.Static)!;
+
+      Type? result = (Type?)method.Invoke(null, [typeof(string)]);
+
+      Assert.Null(result);
+    }
+
+    [Fact]
     public void LogDebugLogsFormattedExpression()
     {
       var repro = new CoverletRepro(getText: _ => "formatted expression");
