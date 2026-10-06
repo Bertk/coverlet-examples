@@ -4,7 +4,7 @@
     <TargetFrameworks>$(NetMinimum);$(NetCurrent)</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <NoWarn>$(NoWarn);CS0219;S3353</NoWarn>
+    <NoWarn>$(NoWarn),CS0219,S3353</NoWarn>
   </PropertyGroup>
 
 </Project>

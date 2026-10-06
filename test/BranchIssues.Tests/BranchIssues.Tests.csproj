@@ -11,7 +11,7 @@
       <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
       <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
       <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-      <NoWarn>$(NoWarn);S125;S2699</NoWarn>
+      <NoWarn>$(NoWarn),S125,S2699,CS8602</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>

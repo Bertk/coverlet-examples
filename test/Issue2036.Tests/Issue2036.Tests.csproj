@@ -10,7 +10,7 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-    <NoWarn>$(NoWarn);S2094;S2326;S1144;S2360;S2094</NoWarn>
+    <NoWarn>$(NoWarn);S2094,S2326,S1144,S2360,S2094</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

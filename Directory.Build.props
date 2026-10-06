@@ -21,7 +21,7 @@
     <AnalysisLevelInteroperability>true</AnalysisLevelInteroperability>
 
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <NoWarn>$(NoWarn);NU1507;CS1591</NoWarn>
+    <NoWarn>$(NoWarn),NU1507,CS1591</NoWarn>
     <!-- https://learn.microsoft.com/en-us/dotnet/core/sdk/artifacts-output -->
     <UseArtifactsOutput>true</UseArtifactsOutput>
     <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>

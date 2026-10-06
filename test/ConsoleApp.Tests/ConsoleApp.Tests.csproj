@@ -7,7 +7,7 @@
     <IsTestProject>true</IsTestProject>
     <TestingPlatformShowTestsFailure>true</TestingPlatformShowTestsFailure>
     <Nullable>enable</Nullable>
-    <NoWarn>$(NoWarn);NU1504;NU1507;CS1591</NoWarn>
+    <NoWarn>$(NoWarn),NU1504,NU1507,CS1591</NoWarn>
     <EnableSourceLink>false</EnableSourceLink>
     <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
     <!--coverlet workaround -->
