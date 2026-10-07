@@ -369,6 +369,7 @@ babel-webpack/
 
 .dotnet/
 *bom.xml
+Documentation/Plans/
 
 launchSettings.json
 
