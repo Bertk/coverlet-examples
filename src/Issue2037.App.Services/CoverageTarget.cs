@@ -4,6 +4,6 @@ public sealed class CoverageTarget
 {
   public string NormalizeName(string input)
   {
-    return string.IsNullOrWhiteSpace(input) ? "unknown" : input.Trim().ToLowerInvariant();
+    return input.Trim().ToLowerInvariant();
   }
 }

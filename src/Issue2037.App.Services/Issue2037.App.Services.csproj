@@ -4,6 +4,7 @@
     <TargetFrameworks>$(NetCurrent)</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn),CA1822</NoWarn>
   </PropertyGroup>
 
 </Project>
