@@ -231,9 +231,23 @@ dotnet run -c Debug --no-build `
     --verbosity normal `
     --coverlet `
     --coverlet-output-format cobertura `
+    --coverlet-exclude-assemblies-without-sources MissingAny `
     --coverlet-file-prefix Issue2037 `
     --diagnostic --diagnostic-verbosity trace `
     --diagnostic-file-prefix Issue2037 `
+    --report-gh
+
+dotnet run -c Debug --no-build `
+    --project test/Issue2037.App.Services.IntegrationTest/Issue2037.App.Services.IntegrationTest.csproj `
+    --report-xunit-trx `
+    --framework net10.0 `
+    --results-directory ./artifacts/results `
+    --verbosity normal `
+    --coverlet `
+    --coverlet-output-format cobertura `
+    --coverlet-file-prefix Issue2037Integration `
+    --diagnostic --diagnostic-verbosity trace `
+    --diagnostic-file-prefix Issue2037Integration `
     --report-gh
 
 dotnet run -c Debug --no-build `

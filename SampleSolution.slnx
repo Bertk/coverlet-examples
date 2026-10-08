@@ -23,6 +23,7 @@
     <Project Path="test/Issue1417.Tests/Issue1417.Tests.csproj" Id="561d7148-88e1-47db-8031-776351e9698a" />
     <Project Path="test/Issue2009.Tests/Issue2009.Tests.csproj" />
     <Project Path="test/Issue2036.Tests/Issue2036.Tests.csproj" Id="13e09f39-90f7-4bef-bfb2-59c04118a755" />
+    <Project Path="test/Issue2037.App.Services.IntegrationTest/Issue2037.App.Services.IntegrationTest.csproj" />
     <Project Path="test/Issue2037.App.Services.UnitTests/Issue2037.App.Services.UnitTests.csproj" />
     <Project Path="test/Issue2045.Tests/Issue2045.Tests.csproj" Id="73218c6e-9aff-48dd-9601-f636fc2f3ad8" />
     <Project Path="test/MediatorApp.Tests/MediatorApp.Tests.csproj" />
