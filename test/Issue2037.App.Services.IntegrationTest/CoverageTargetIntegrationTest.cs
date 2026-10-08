@@ -54,7 +54,26 @@ public class CoverageTargetIntegrationTest
     {
       if (!process.HasExited)
       {
-        await RequestShutdownAndWaitForExitAsync(port, process, TestContext.Current.CancellationToken);
+        using CancellationTokenSource cleanupCts = new(TimeSpan.FromSeconds(10));
+        try
+        {
+          await RequestShutdownAndWaitForExitAsync(port, process, cleanupCts.Token);
+        }
+        finally
+        {
+          if (!process.HasExited)
+          {
+            try
+            {
+              process.Kill(entireProcessTree: true);
+            }
+            catch (InvalidOperationException) when (process.HasExited)
+            {
+              // empty catch block to ignore exceptions that may occur if the process has already exited
+            }
+            await process.WaitForExitAsync(TestContext.Current.CancellationToken);
+          }
+        }
       }
     }
   }
