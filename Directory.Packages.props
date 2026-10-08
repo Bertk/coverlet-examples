@@ -3,16 +3,16 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <XunitV3Version>4.0.1</XunitV3Version>
     <XunitRunnerVisualstudioVersion>4.0.0</XunitRunnerVisualstudioVersion>
-    <CoverletVersion>10.1.1-preview.2.g8b7654e2c0</CoverletVersion>
+    <CoverletVersion>10.1.1-preview.7.gecd6fd5533</CoverletVersion>
     <MicrosoftNETRuntimeVersion>10.0.12</MicrosoftNETRuntimeVersion>
-    <MicrosoftTestingPlatformVersion>2.4.1</MicrosoftTestingPlatformVersion>
+    <MicrosoftTestingPlatformVersion>2.5.1</MicrosoftTestingPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
     <GlobalPackageReference Include="Nerdbank.GitVersioning" Version="3.10.94" />
   </ItemGroup>
   <ItemGroup>
-    <PackageVersion Include="AWSSecretsManager.Provider" Version="1.3.6" />
+    <PackageVersion Include="AWSSecretsManager.Provider" Version="1.4.0" />
     <PackageVersion Include="coverlet.MTP" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.msbuild" Version="$(CoverletVersion)" />
     <PackageVersion Include="coverlet.collector" Version="$(CoverletVersion)" />
@@ -34,7 +34,7 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="$(MicrosoftNETRuntimeVersion)" />
     <!--<PackageVersion Include="Microsoft.Testing.Platform.MSBuild" Version="2.4.1" />-->
     <PackageVersion Include="Moq" Version="4.21.0" />
-    <PackageVersion Include="MSTest" Version="4.4.1" />
+    <PackageVersion Include="MSTest" Version="4.5.1" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="NSubstitute" Version="6.2.0" />
     <PackageVersion Include="NUnit" Version="5.0.0" />
