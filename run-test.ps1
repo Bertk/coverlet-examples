@@ -232,9 +232,9 @@ dotnet run -c Debug --no-build `
     --coverlet `
     --coverlet-output-format cobertura `
     --coverlet-exclude-assemblies-without-sources MissingAny `
-    --coverlet-file-prefix Issue2037 `
+    --coverlet-file-prefix Issue2037Unit `
     --diagnostic --diagnostic-verbosity trace `
-    --diagnostic-file-prefix Issue2037 `
+    --diagnostic-file-prefix Issue2037Unit `
     --report-gh
 
 dotnet run -c Debug --no-build `
