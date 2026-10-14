@@ -10,10 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="ConsoleAppTest" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="System.CommandLine" />
   </ItemGroup>
 
