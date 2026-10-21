@@ -3,7 +3,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <XunitV3Version>4.0.2</XunitV3Version>
     <XunitRunnerVisualstudioVersion>4.0.0</XunitRunnerVisualstudioVersion>
-    <CoverletVersion>10.1.1-preview.7.gecd6fd5533</CoverletVersion>
+    <CoverletVersion>10.1.1-preview.13.g39f6b6fa9d</CoverletVersion>
     <MicrosoftNETRuntimeVersion>10.0.13</MicrosoftNETRuntimeVersion>
     <MicrosoftTestingPlatformVersion>2.5.1</MicrosoftTestingPlatformVersion>
   </PropertyGroup>
