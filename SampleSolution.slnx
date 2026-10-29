@@ -4,6 +4,7 @@
     <Project Path="src/ClassIssue1334/ClassIssue1334.csproj" />
     <Project Path="src/ClassIssue2036/ClassIssue2036.csproj" Id="6ad7b5d8-1681-4a02-8de0-7a47c9610d9f" />
     <Project Path="src/ClassIssue2045/ClassIssue2045.csproj" Id="e30b9575-4b8f-4777-a624-7416449d5cfe" />
+    <Project Path="src/ClassIssue2058/ClassIssue2058.csproj" />
     <Project Path="src/ClassLibrary/ClassLibrary.csproj" />
     <Project Path="src/ClassLibrary1/ClassLibrary1.csproj" />
     <Project Path="src/ConsoleApp/ConsoleApp.csproj" />
@@ -26,6 +27,7 @@
     <Project Path="test/Issue2037.App.Services.IntegrationTest/Issue2037.App.Services.IntegrationTest.csproj" />
     <Project Path="test/Issue2037.App.Services.UnitTests/Issue2037.App.Services.UnitTests.csproj" />
     <Project Path="test/Issue2045.Tests/Issue2045.Tests.csproj" Id="73218c6e-9aff-48dd-9601-f636fc2f3ad8" />
+    <Project Path="test/Issue2058.Tests/Issue2058.Tests.csproj" />
     <Project Path="test/MediatorApp.Tests/MediatorApp.Tests.csproj" />
     <Project Path="test/MSTestProject1.Tests/MSTestProject1.Tests.csproj" />
     <Project Path="test/Mtp1934.Core.Tests/Mtp1934.Core.Tests.csproj" />
