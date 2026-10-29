@@ -12,7 +12,11 @@ public sealed class ClassLoop
       {
         _n--;
       }
-      try { _n++; } finally { _n++; }
+
+      try { _n++; }
+      finally { _n++; }
+
+      // break;  // Prevent infinite loop
     }
   }
 }
