@@ -5,7 +5,7 @@
     <XunitRunnerVisualstudioVersion>4.0.0</XunitRunnerVisualstudioVersion>
     <CoverletVersion>10.1.1-preview.15.g2e0a852d3a</CoverletVersion>
     <MicrosoftNETRuntimeVersion>10.0.14</MicrosoftNETRuntimeVersion>
-    <MicrosoftTestingPlatformVersion>2.5.1</MicrosoftTestingPlatformVersion>
+    <MicrosoftTestingPlatformVersion>2.5.2</MicrosoftTestingPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.35.0.4138" />
