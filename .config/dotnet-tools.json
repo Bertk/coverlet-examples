@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.5.12",
+      "version": "5.6.0",
       "commands": [
         "reportgenerator"
       ],
@@ -17,14 +17,14 @@
       "rollForward": false
     },
     "coverlet.console": {
-      "version": "10.1.1-preview.15.g2e0a852d3a",
+      "version": "10.1.1",
       "commands": [
         "coverlet"
       ],
       "rollForward": false
     },
     "xunit-console-tool": {
-      "version": "4.0.2",
+      "version": "4.0.3",
       "commands": [
         "xunit-console"
       ],
